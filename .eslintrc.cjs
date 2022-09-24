@@ -10,8 +10,6 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:storybook/recommended',
-    'plugin:testing-library/react',
   ],
   overrides: [
     {
@@ -22,6 +20,10 @@ module.exports = {
     {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: ['plugin:testing-library/react'],
+    },
+    {
+      files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+      extends: ['plugin:storybook/recommended'],
     },
   ],
   parser: '@typescript-eslint/parser',
