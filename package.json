@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "jest": "jest --watchAll=true",
     "test": "jest",
-    "lint": "eslint",
-    "format": "prettier --write",
+    "lint": "eslint .",
+    "format": "prettier . --write",
     "coverage": "npm test -- --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
