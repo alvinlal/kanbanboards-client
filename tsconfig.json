@@ -16,6 +16,12 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [".eslintrc.cjs", "src", "jest-setup.ts", "jest.config.cjs","postcss.config.cjs"],
+  "include": [
+    ".eslintrc.cjs",
+    "src",
+    "jest-setup.ts",
+    "jest.config.cjs",
+    "postcss.config.cjs"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
