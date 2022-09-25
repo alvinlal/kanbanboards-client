@@ -11,10 +11,10 @@
 }
 
 .primary {
-  background-color: #00516b;
+  background-color: $primary-color;
 }
 .secondary {
-  background-color: #e7e7e7;
+  background-color: $secondary-color;
   color: black;
 }
 .success {
