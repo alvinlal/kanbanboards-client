@@ -5,7 +5,7 @@ describe('App.tsx', () => {
   it('displays hello world', () => {
     render(<App />);
     const helloWorldElement = screen.getByRole('heading', {
-      name: 'hello world',
+      name: 'Hello world',
     });
     expect(helloWorldElement).toBeInTheDocument();
   });
