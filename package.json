@@ -11,6 +11,7 @@
     "jest": "jest --watchAll=true",
     "test": "jest",
     "lint": "eslint .",
+    "check-types": "tsc --noEmit",
     "format": "prettier . --write",
     "coverage": "npm test -- --coverage",
     "storybook": "start-storybook -p 6006",
