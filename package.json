@@ -13,7 +13,7 @@
     "test:cov": "jest --coverage",
     "lint": "eslint .",
     "check-types": "tsc --noEmit",
-    "format": "prettier . --write",
+    "format": "prettier . --write --loglevel silent",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
