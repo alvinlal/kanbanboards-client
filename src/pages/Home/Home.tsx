@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -12,7 +13,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <p>this is home page</p>
       <p>count is {count}</p>
       <button type="button" onClick={() => setCount((prev) => prev + 1)}>
