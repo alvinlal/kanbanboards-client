@@ -45,6 +45,7 @@ module.exports = {
           '**/.storybook/**/*.*',
           '**/*{.,_}{test,spec}.{ts,tsx}',
           'jest-setup.ts',
+          'cypress.config.ts',
         ],
         peerDependencies: true,
       },

@@ -21,7 +21,9 @@
     "src",
     "jest-setup.ts",
     "jest.config.cjs",
-    "postcss.config.cjs"
+    "postcss.config.cjs",
+    "cypress.config.ts",
+    "cypress"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
