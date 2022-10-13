@@ -22,9 +22,11 @@
     "check-types": "tsc --noEmit",
     "format": "prettier . --write --loglevel silent",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.13",
     "@heroicons/react": "^2.0.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -74,5 +76,7 @@
     "sass": "^1.55.0",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "kanbanboards-client@0.0.0"
 }

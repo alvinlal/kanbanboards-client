@@ -1,0 +1,95 @@
+@use '@fontsource/inter/variable.css';
+@use 'breakpoints';
+
+// font-weights
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+// Heading Large (Desktop devices)
+h1 {
+  font-size: 3rem;
+  line-height: 120%;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 120%;
+}
+
+h3 {
+  font-size: 2.0625rem;
+  line-height: 120%;
+}
+
+h4 {
+  font-size: 1.75rem;
+  line-height: 120%;
+}
+
+h5 {
+  font-size: 1.4375rem;
+  line-height: 120%;
+}
+
+h6 {
+  font-size: 1.1875rem;
+  line-height: 120%;
+}
+
+// Heading Small (Mobile devices)
+@media screen and (max-width: breakpoints.$sm) {
+  h1 {
+    font-size: 2.5rem;
+    line-height: 120%;
+  }
+  h2 {
+    font-size: 2.0625rem;
+    line-height: 120%;
+  }
+  h3 {
+    font-size: 1.75rem;
+    line-height: 120%;
+  }
+  h4 {
+    font-size: 1.4375rem;
+    line-height: 120%;
+  }
+  h5 {
+    font-size: 1.1875rem;
+    line-height: 120%;
+  }
+  h6 {
+    font-size: 1rem;
+    line-height: 120%;
+  }
+}
+
+// Body Large (Desktop devices)
+@mixin text-base {
+  font-size: 1rem;
+  line-height: 150%;
+  @media screen and (max-width: breakpoints.$sm) {
+    font-size: 0.875rem;
+    line-height: 150%;
+  }
+}
+
+@mixin text-small {
+  font-size: 0.8125rem;
+  line-height: 120%;
+  @media screen and (max-width: breakpoints.$sm) {
+    font-size: 0.75rem;
+    line-height: 120%;
+  }
+}
+
+@mixin text-xsmall {
+  font-size: 0.6875rem;
+  line-height: 120%;
+  @media screen and (max-width: breakpoints.$sm) {
+    font-size: 0.625rem;
+    line-height: 120%;
+  }
+}
