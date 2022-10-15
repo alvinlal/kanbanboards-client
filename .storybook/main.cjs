@@ -13,6 +13,7 @@ module.exports = {
   },
   features: {
     storyStoreV7: true,
+    // previewMdx2: true,
   },
   async viteFinal(config) {
     return mergeConfig(config, {

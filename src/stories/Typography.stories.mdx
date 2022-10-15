@@ -1,0 +1,108 @@
+import { Meta, Typeset } from '@storybook/addon-docs';
+
+<Meta title="Design Tokens/Typography" />
+
+# Typography
+
+<br />
+
+<a
+  href="https://www.figma.com/file/wNNaVF1HgurM1sEHhwnoqI/kanbanboards?node-id=18%3A15484"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Typeset in figma
+</a>
+
+<br />
+
+<hr />
+
+**Font:** : Inter
+
+**Weights:** : 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
+
+<hr />
+
+<br />
+
+export const sampleText = 'The quick brown fox jumped over the lazy dog.';
+
+export const typography = {
+  type: '"Inter", sans-serif',
+  weight: {
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+  },
+  sizes: {
+    large: {
+      h1: 48,
+      h2: 40,
+      h3: 33,
+      h4: 28,
+      h5: 23,
+      h6: 19,
+      base: 16,
+      small: 13,
+      xsmall: 11,
+    },
+    small: {
+      h1: 40,
+      h2: 33,
+      h3: 28,
+      h4: 23,
+      h5: 19,
+      h6: 16,
+      base: 14,
+      small: 12,
+      xsmall: 10,
+    },
+  },
+};
+
+### Large (Desktop Devices)
+
+<br />
+
+<Typeset
+  fontSizes={[
+    Number(typography.sizes.large.h1),
+    Number(typography.sizes.large.h2),
+    Number(typography.sizes.large.h3),
+    Number(typography.sizes.large.h4),
+    Number(typography.sizes.large.h5),
+    Number(typography.sizes.large.h6),
+    Number(typography.sizes.large.base),
+    Number(typography.sizes.large.small),
+    Number(typography.sizes.large.xsmall),
+  ]}
+  fontWeight={typography.weight.regular}
+  sampleText={sampleText}
+  fontFamily={typography.type}
+/>
+
+<hr />
+<br />
+
+### Small (Mobile Devices)
+
+<br />
+
+<Typeset
+  fontSizes={[
+    Number(typography.sizes.small.h1),
+    Number(typography.sizes.small.h2),
+    Number(typography.sizes.small.h3),
+    Number(typography.sizes.small.h4),
+    Number(typography.sizes.small.h5),
+    Number(typography.sizes.small.h6),
+    Number(typography.sizes.small.base),
+    Number(typography.sizes.small.small),
+    Number(typography.sizes.small.xsmall),
+  ]}
+  fontWeight={typography.weight.regular}
+  sampleText={sampleText}
+  fontFamily={typography.type}
+/>
