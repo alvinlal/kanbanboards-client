@@ -1,0 +1,46 @@
+import { Meta, IconGallery, IconItem } from '@storybook/addon-docs';
+import AppLogo from '/logo.svg';
+import GoogleLogo from '../assets/icons/google.svg';
+
+<Meta title="Design Tokens/Icons" />
+
+# Icons
+
+<br />
+
+<a
+  href="https://www.figma.com/file/wNNaVF1HgurM1sEHhwnoqI/kanbanboards?node-id=18%3A15479"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Icon palette in figma
+</a>
+
+<br />
+<br />
+
+<div style={{ display: 'flex', alignItems: 'center' }}>
+  App Logo : &nbsp; <img src={AppLogo} height={32} width={32} />
+</div>
+
+<br />
+<hr />
+
+<br />
+
+# Primary Icons
+
+All app icons are from [heroicons](https://heroicons.com/).
+
+<br />
+<br />
+
+# External Icons
+
+<br />
+
+<IconGallery>
+  <IconItem name="google logo">
+    <img src={GoogleLogo} />
+  </IconItem>
+</IconGallery>
