@@ -1,4 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Inter', sans-serif;
-  color: $text-400;
+}
+
+::-webkit-scrollbar {
+  background-color: white;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $grey-300;
+  width: 8px;
+}
+
+input:focus {
+  outline: none;
 }

@@ -23,7 +23,10 @@
     "jest.config.cjs",
     "postcss.config.cjs",
     "cypress.config.ts",
-    "cypress"
+    "cypress",
+    "test-utils",
+    "mocks/*",
+    "babel.config.cjs"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search.tsx Should match api request finished snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="search"
+  >
+    <div
+      class="search__bar"
+    >
+      <div
+        class="search__input"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="3"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <input
+          placeholder="Search"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      class="search__results"
+      data-testid="search-result-container"
+    >
+      <a
+        class="search__result"
+        href="/board/ad223casdfdedas392af32223"
+        id="search-result"
+      >
+        <h6>
+          my project 1
+        </h6>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <a
+        class="search__result"
+        href="/board/ad223cdasdged3f392af32223"
+        id="search-result"
+      >
+        <h6>
+          my project 2
+        </h6>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <a
+        class="search__result"
+        href="/board/ad223cdedagsd3f392af32223"
+        id="search-result"
+      >
+        <h6>
+          my project 3
+        </h6>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <a
+        class="search__result"
+        href="/board/ad2ewrw23cded3f392af32223"
+        id="search-result"
+      >
+        <h6>
+          my project 4
+        </h6>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <a
+        class="search__result"
+        href="/board/ad22d3agsdcded3f392af32223"
+        id="search-result"
+      >
+        <h6>
+          my project 5
+        </h6>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <a
+        class="search__result"
+        href="/board/ad2agghreq23cded3f392af32223"
+        id="search-result"
+      >
+        <h6>
+          my project 6
+        </h6>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <a
+        class="search__result"
+        href="/board/ad22kljdrg3cded3f392af32223"
+        id="search-result"
+      >
+        <h6>
+          my project 7
+        </h6>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Search.tsx Should match api request loading snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="search"
+  >
+    <div
+      class="search__bar"
+    >
+      <div
+        class="search__input"
+      >
+        <svg
+          aria-hidden="true"
+          fill="none"
+          height="32"
+          stroke="currentColor"
+          stroke-width="3"
+          viewBox="0 0 24 24"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <input
+          placeholder="Search"
+          type="text"
+        />
+      </div>
+      <div
+        class="spinner"
+        data-testid="spinner"
+        height="24px"
+        width="24px"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Search.tsx Should match snapshot 1`] = `
+<div
+  className="search"
+>
+  <div
+    className="search__bar"
+  >
+    <div
+      className="search__input"
+    >
+      <svg
+        aria-hidden="true"
+        fill="none"
+        height={32}
+        stroke="currentColor"
+        strokeWidth={3}
+        viewBox="0 0 24 24"
+        width={32}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <input
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Search"
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;

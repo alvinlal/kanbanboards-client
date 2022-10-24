@@ -34,6 +34,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'no-underscore-dangle': 0,
+    'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     'react/require-default-props': 0,
     'react/function-component-definition': 0,
@@ -46,6 +48,8 @@ module.exports = {
           '**/*{.,_}{test,spec}.{ts,tsx}',
           'jest-setup.ts',
           'cypress.config.ts',
+          'test-utils/**/*',
+          'mocks/*',
         ],
         peerDependencies: true,
       },
