@@ -51,7 +51,7 @@ describe('Search.tsx', () => {
     expect(loadingSpinner).not.toBeInTheDocument();
 
     server.use(
-      rest.post(apiEndPoint('/search'), async (_, res, ctx) => {
+      rest.get(apiEndPoint('/search'), async (_, res, ctx) => {
         return res(ctx.delay('infinite'));
       })
     );
@@ -88,7 +88,7 @@ describe('Search.tsx', () => {
     ];
 
     server.use(
-      rest.post(apiEndPoint('/search'), async (_, res, ctx) => {
+      rest.get(apiEndPoint('/search'), async (_, res, ctx) => {
         return res(ctx.json(results));
       })
     );
@@ -106,7 +106,7 @@ describe('Search.tsx', () => {
 
   it("Should display 'No Results!' when there is no results", async () => {
     server.use(
-      rest.post(apiEndPoint('/search'), async (_, res, ctx) => {
+      rest.get(apiEndPoint('/search'), async (_, res, ctx) => {
         return res(ctx.json([]));
       })
     );
@@ -127,7 +127,7 @@ describe('Search.tsx', () => {
     const _id = faker.datatype.uuid();
     const pathname = `/board/${_id}`;
     server.use(
-      rest.post(apiEndPoint('/search'), async (_, res, ctx) => {
+      rest.get(apiEndPoint('/search'), async (_, res, ctx) => {
         return res(
           ctx.json([
             {
@@ -214,7 +214,7 @@ describe('Search.tsx', () => {
 
   it('Should match api request loading snapshot', async () => {
     server.use(
-      rest.post(apiEndPoint('/search'), (_, res, ctx) => {
+      rest.get(apiEndPoint('/search'), (_, res, ctx) => {
         return res(ctx.delay('infinite'));
       })
     );

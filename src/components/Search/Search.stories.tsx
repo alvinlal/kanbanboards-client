@@ -40,7 +40,7 @@ export const Loading: ComponentStory<typeof Search> = () => (
 Loading.parameters = {
   msw: {
     handlers: [
-      rest.post(apiEndPoint('/search'), (_, res, ctx) => {
+      rest.get(apiEndPoint('/search'), (_, res, ctx) => {
         return res(ctx.delay('infinite'));
       }),
     ],
@@ -74,7 +74,7 @@ export const NoResults: ComponentStory<typeof Search> = () => (
 NoResults.parameters = {
   msw: {
     handlers: [
-      rest.post(apiEndPoint('/search'), (_, res, ctx) => {
+      rest.get(apiEndPoint('/search'), (_, res, ctx) => {
         return res(ctx.json([]));
       }),
     ],
