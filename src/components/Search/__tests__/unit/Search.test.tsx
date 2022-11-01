@@ -36,15 +36,6 @@ describe('Search.tsx', () => {
     return queryInputElement;
   };
 
-  const mockedNavigate = jest.fn();
-
-  beforeEach(() => {
-    jest.mock('react-router-dom', () => ({
-      ...jest.requireActual('react-router-dom'),
-      useNavigate: () => mockedNavigate,
-    }));
-  });
-
   // tests
   it('Should display loading spinner while results are loading', async () => {
     let loadingSpinner = screen.queryByTestId(loadingSpinnerTestId);

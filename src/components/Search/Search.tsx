@@ -63,37 +63,37 @@ const Search: React.FC = () => {
         {loading && <Spinner />}
       </div>
       {/* eslint-disable-next-line no-nested-ternary */}
-      {results ? (
-        results.length ? (
-          isResultsVisible && (
-            <div
-              className={styles.search__results}
-              data-testid="search-result-container"
-            >
-              {results.map((result) => (
-                <Link
-                  key={result._id}
-                  className={styles.search__result}
-                  to={`/board/${result._id}`}
-                  id="search-result"
-                >
-                  <h6>{result.title}</h6>
-                  <ChevronRightIcon width={32} height={32} />
-                </Link>
-              ))}
-            </div>
-          )
-        ) : (
-          <div
-            className={`${styles.search__results}  ${styles.search__noresult}`}
-            data-testid="search-result-container"
-          >
-            <div className={styles.search__result}>
-              <h6>No Results !</h6>
-            </div>
-          </div>
-        )
-      ) : null}
+      {results
+        ? results.length
+          ? isResultsVisible && (
+              <div
+                className={styles.search__results}
+                data-testid="search-result-container"
+              >
+                {results.map((result) => (
+                  <Link
+                    key={result._id}
+                    className={styles.search__result}
+                    to={`/board/${result._id}`}
+                    id="search-result"
+                  >
+                    <h6>{result.title}</h6>
+                    <ChevronRightIcon width={32} height={32} />
+                  </Link>
+                ))}
+              </div>
+            )
+          : isResultsVisible && (
+              <div
+                className={`${styles.search__results}  ${styles.search__noresult}`}
+                data-testid="search-result-container"
+              >
+                <div className={styles.search__result}>
+                  <h6>No Results !</h6>
+                </div>
+              </div>
+            )
+        : null}
     </div>
   );
 };
