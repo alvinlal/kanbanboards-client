@@ -6,6 +6,8 @@ header {
   width: 100%;
   background-color: $primary-300;
   padding: 0px 24px;
+  font-size: 19px;
+  position: relative;
 
   .logo__title {
     display: flex;
@@ -15,9 +17,83 @@ header {
       font-weight: $bold;
       margin-left: 16px;
     }
+
+    .hamburger__bars {
+      display: none;
+    }
+  }
+
+  .header__search {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: auto;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    a {
+      margin-left: 16px;
+      text-decoration: none;
+      font-weight: $bold;
+      color: white;
+      white-space: nowrap;
+
+      &:hover {
+        border-bottom: 3px solid white;
+      }
+    }
+
+    button {
+      text-decoration: none;
+      background-color: transparent;
+      font-size: 19px;
+      font-weight: $bold;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-left: 16px;
+      &:hover {
+        border-bottom: 3px solid white;
+      }
+    }
   }
 
   @media screen and (max-width: $sm) {
+    height: 64px;
     padding: 0px 16px;
+    font-size: 16px;
+
+    .logo__title {
+      .logo {
+        display: none;
+      }
+      .hamburger__bars {
+        display: block;
+        transform: scaley(1.7);
+      }
+    }
+
+    nav {
+      .logout__btn {
+        display: none;
+      }
+      button {
+        font-size: 16px;
+      }
+    }
+    h3 {
+      display: none;
+    }
+    .header__search {
+      position: static;
+      transform: none;
+      width: 100%;
+      margin-left: 8px;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
 
 export default {
@@ -6,17 +7,34 @@ export default {
   component: Header,
 } as ComponentMeta<typeof Header>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
+const Template: ComponentStory<typeof Header> = (args) => (
+  <MemoryRouter>
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+    <Header {...args} />
+  </MemoryRouter>
+);
 
-export const UnAuthenticated = Template.bind({});
+export const BoardPage = Template.bind({});
 
-UnAuthenticated.args = {
-  authenticated: false,
+BoardPage.storyName = 'In Board Page';
+
+BoardPage.args = {
+  authenticated: true,
+  boardPage: true,
 };
 
-export const Authenticated = Template.bind({});
+export const OtherPagesAuthenticated = Template.bind({});
+OtherPagesAuthenticated.storyName = 'Authenticated user in all other pages';
 
-Authenticated.args = {
+OtherPagesAuthenticated.args = {
   authenticated: true,
+  boardPage: false,
+};
+
+export const OtherPageUnAuthenticated = Template.bind({});
+OtherPageUnAuthenticated.storyName = 'UnAuthenticated user in all other pages';
+
+OtherPageUnAuthenticated.args = {
+  authenticated: false,
+  boardPage: false,
 };

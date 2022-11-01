@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header.tsx Should match snapshot for authenticated user 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="logo__title"
+  >
+    <div
+      className=""
+      height={48}
+      width={48}
+    />
+    <h3>
+      KanbanBoards
+    </h3>
+  </div>
+  <div
+    className="header__search"
+  />
+  <nav>
+    <a
+      href="/allboards"
+      onClick={[Function]}
+    >
+      Your Boards
+    </a>
+    <button
+      className=""
+      onClick={[Function]}
+      type="button"
+    >
+      Logout
+    </button>
+  </nav>
+</header>
+`;
+
+exports[`Header.tsx Should match snapshot for board page 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="logo__title"
+  >
+    <div
+      className="logo"
+      height={48}
+      width={48}
+    />
+    <svg
+      aria-hidden="true"
+      className="hamburger__bars"
+      fill="none"
+      height={48}
+      stroke="currentColor"
+      strokeWidth={1.5}
+      viewBox="0 0 24 24"
+      width={38}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+    <h3>
+      KanbanBoards
+    </h3>
+  </div>
+  <div
+    className="header__search"
+  >
+    <div
+      className="search"
+    >
+      <div
+        className="search__bar"
+      >
+        <div
+          className="search__input"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height={32}
+            stroke="currentColor"
+            strokeWidth={3}
+            viewBox="0 0 24 24"
+            width={32}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <input
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Search"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <button
+      className="logout__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Logout
+    </button>
+  </nav>
+</header>
+`;
+
+exports[`Header.tsx Should match snapshot for unauthenticated user 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="logo__title"
+  >
+    <div
+      className=""
+      height={48}
+      width={48}
+    />
+    <h3>
+      KanbanBoards
+    </h3>
+  </div>
+  <div
+    className="header__search"
+  />
+  <nav>
+    <a
+      href="/auth/signup"
+      onClick={[Function]}
+    >
+      Signup
+    </a>
+    <a
+      href="/auth/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
+  </nav>
+</header>
+`;
