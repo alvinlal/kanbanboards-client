@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { userEvent, within } from '@storybook/testing-library';
 import { apiEndPoint } from '../../../test-utils/msw/baseUrls';
 import Search from './Search';
+import defaultHandlers from '../../../test-utils/msw/defaultHandlers';
 
 export default {
   title: 'Components/Search',
@@ -39,11 +40,7 @@ export const Loading: ComponentStory<typeof Search> = () => (
 
 Loading.parameters = {
   msw: {
-    handlers: [
-      rest.get(apiEndPoint('/search'), (_, res, ctx) => {
-        return res(ctx.delay('infinite'));
-      }),
-    ],
+    handlers: [rest.get(apiEndPoint('/search'), defaultHandlers.LOADING)],
   },
 };
 

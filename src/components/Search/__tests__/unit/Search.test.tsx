@@ -22,6 +22,7 @@ import renderer from 'react-test-renderer';
 import Search from '../../Search';
 import { server, rest } from '../../../../../test-utils/msw/server';
 import { apiEndPoint } from '../../../../../test-utils/msw/baseUrls';
+import defaultHandlers from '../../../../../test-utils/msw/defaultHandlers';
 
 describe('Search.tsx', () => {
   // setup
@@ -41,11 +42,7 @@ describe('Search.tsx', () => {
     let loadingSpinner = screen.queryByTestId(loadingSpinnerTestId);
     expect(loadingSpinner).not.toBeInTheDocument();
 
-    server.use(
-      rest.get(apiEndPoint('/search'), async (_, res, ctx) => {
-        return res(ctx.delay('infinite'));
-      })
-    );
+    server.use(rest.get(apiEndPoint('/search'), defaultHandlers.LOADING));
 
     render(<Search />, { wrapper: BrowserRouter });
 
@@ -204,11 +201,7 @@ describe('Search.tsx', () => {
   });
 
   it('Should match api request loading snapshot', async () => {
-    server.use(
-      rest.get(apiEndPoint('/search'), (_, res, ctx) => {
-        return res(ctx.delay('infinite'));
-      })
-    );
+    server.use(rest.get(apiEndPoint('/search'), defaultHandlers.LOADING));
 
     const { asFragment } = render(<Search />, {
       wrapper: BrowserRouter,

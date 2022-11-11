@@ -35,10 +35,13 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'no-underscore-dangle': 0,
+    'react/jsx-props-no-spreading': 0,
+    '@typescript-eslint/naming-convention': 0,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     'react/require-default-props': 0,
     'react/function-component-definition': 0,
+    'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': [
       'error',
       {

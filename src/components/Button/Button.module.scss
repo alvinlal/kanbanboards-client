@@ -1,0 +1,96 @@
+.button {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-weight: $bold;
+  padding: 16px;
+  svg {
+    margin-left: 8px;
+    stroke-width: 3;
+  }
+}
+
+/* primary */
+.primary {
+  background-color: $primary-300;
+  color: white;
+  svg {
+    color: white;
+  }
+}
+
+.primary:hover {
+  background-color: $primary-400;
+}
+
+.primary:active {
+  background-color: $primary-200;
+}
+
+.primary:disabled {
+  background-color: $grey-400;
+  cursor: not-allowed;
+}
+
+.primary.destructive {
+  background-color: $error-300;
+}
+
+/* secondary */
+.secondary {
+  background-color: white;
+  border: 2px solid $primary-300;
+  color: $primary-300;
+  svg {
+    color: $primary-300;
+  }
+}
+
+.secondary:hover {
+  background-color: $primary-300;
+  color: white;
+  svg {
+    color: white;
+  }
+}
+
+.secondary:active {
+  background-color: $primary-400;
+  border: none;
+  color: white;
+  svg {
+    color: white;
+  }
+}
+
+.secondary:disabled {
+  background-color: white;
+  border: 2px solid $grey-400;
+  color: $grey-400;
+  cursor: not-allowed;
+  svg {
+    color: $grey-400;
+  }
+}
+
+.secondary.destructive {
+  background-color: white;
+  border: 2px solid $error-300;
+  color: $error-300;
+  svg {
+    color: $error-300;
+  }
+}
+
+.secondary.destructive:hover {
+  background-color: $error-300;
+  border: 2px solid $error-300;
+  color: white;
+  svg {
+    color: white;
+  }
+}

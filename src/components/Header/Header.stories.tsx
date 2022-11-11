@@ -9,7 +9,6 @@ export default {
 
 const Template: ComponentStory<typeof Header> = (args) => (
   <MemoryRouter>
-    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <Header {...args} />
   </MemoryRouter>
 );

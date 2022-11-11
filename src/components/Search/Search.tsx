@@ -2,7 +2,13 @@ import {
   ChevronRightIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
-import React, { useState, useCallback, useRef } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useRef,
+  useMemo,
+  useEffect,
+} from 'react';
 import throttle from 'lodash.throttle';
 import { Link } from 'react-router-dom';
 import SearchResponse from '../../api/search/types/SearchResponse';
@@ -15,6 +21,7 @@ const Search: React.FC = () => {
   const [isResultsVisible, setIsResultsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const abortController = useMemo(() => new AbortController(), []);
 
   const handleChange = useCallback(
     async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +31,7 @@ const Search: React.FC = () => {
       }
       try {
         setLoading(true);
-        const { data } = await search(e.target.value);
+        const { data } = await search(e.target.value, abortController.signal);
         if (searchInputRef.current?.value) {
           setResults(data);
         }
@@ -34,11 +41,17 @@ const Search: React.FC = () => {
         setLoading(false);
       }
     },
-    []
+    [abortController.signal]
   );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const throttledHandleChange = useCallback(throttle(handleChange, 300), []);
+
+  useEffect(() => {
+    return () => {
+      abortController.abort();
+    };
+  }, [abortController]);
 
   return (
     <div className={styles.search}>
