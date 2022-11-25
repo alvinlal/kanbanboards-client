@@ -10,6 +10,7 @@ const config = {
     '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.svg': '<rootDir>/mocks/svg.ts',
   },
+  resetMocks: true,
 };
 
 module.exports = config;

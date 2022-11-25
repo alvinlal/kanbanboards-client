@@ -9,7 +9,9 @@ export const me = () =>
     .then((res) => res.data);
 
 export const signUp = (data: SignupPayload) =>
-  axiosClient.post<SignupResponse>('/auth/signup', data);
+  axiosClient.post<SignupResponse>('/auth/signup', data, {
+    withCredentials: true,
+  });
 
 export const getUserDetailsFromOauth = (oauthUrl: string) =>
   axiosClient.get<User>(oauthUrl, { withCredentials: true });

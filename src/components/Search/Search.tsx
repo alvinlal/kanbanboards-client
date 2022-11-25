@@ -2,59 +2,27 @@ import {
   ChevronRightIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
-import React, {
-  useState,
-  useCallback,
-  useRef,
-  useMemo,
-  useEffect,
-} from 'react';
-import throttle from 'lodash.throttle';
+
 import { Link } from 'react-router-dom';
-import SearchResponse from '../../api/search/types/SearchResponse';
+
 import Spinner from '../Spinner/Spinner';
+import { useSearch } from './hooks/useSearch';
 import styles from './Search.module.scss';
-import search from '../../api/search';
 
-const Search: React.FC = () => {
-  const [results, setResults] = useState<SearchResponse | null>(null);
-  const [isResultsVisible, setIsResultsVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const abortController = useMemo(() => new AbortController(), []);
+type SearchProps = React.HTMLAttributes<HTMLDivElement>;
 
-  const handleChange = useCallback(
-    async (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (!e.target.value) {
-        setResults(null);
-        return;
-      }
-      try {
-        setLoading(true);
-        const { data } = await search(e.target.value, abortController.signal);
-        if (searchInputRef.current?.value) {
-          setResults(data);
-        }
-      } catch (err) {
-        // send error to monitoring service
-      } finally {
-        setLoading(false);
-      }
-    },
-    [abortController.signal]
-  );
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const throttledHandleChange = useCallback(throttle(handleChange, 300), []);
-
-  useEffect(() => {
-    return () => {
-      abortController.abort();
-    };
-  }, [abortController]);
+const Search: React.FC<SearchProps> = (props) => {
+  const {
+    loading,
+    isResultsVisible,
+    setIsResultsVisible,
+    results,
+    searchInputRef,
+    throttledHandleChange,
+  } = useSearch();
 
   return (
-    <div className={styles.search}>
+    <div className={styles.search} {...props}>
       <div className={styles.search__bar}>
         <div className={styles.search__input}>
           <MagnifyingGlassIcon width={32} height={32} strokeWidth={3} />

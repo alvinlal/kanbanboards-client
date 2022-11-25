@@ -1,11 +1,11 @@
 import { ResponseComposition, RestContext, RestRequest } from 'msw';
 import defaultHandlers from '../../../defaultHandlers';
-import user from '../../../../mocks/user.json';
+import { userStub } from '../../../../stubs/user.stub';
 
-export default {
+export const signupController = {
   ...defaultHandlers,
   200: async (_: RestRequest, res: ResponseComposition, ctx: RestContext) =>
-    res(ctx.json({ _id: user._id })),
+    res(ctx.json({ _id: userStub()._id })),
   400: (_: RestRequest, res: ResponseComposition, ctx: RestContext) =>
     res(
       ctx.status(400),

@@ -1,11 +1,11 @@
 import { rest } from 'msw';
 import { apiEndPoint } from '../../baseUrls';
-import me from './controllers/me';
-import signUp from './controllers/signUp';
+import { meController } from './controllers/meController';
+import { signupController } from './controllers/signupController';
 
 const authHandlers = [
-  rest.get(apiEndPoint('/auth/me'), me[200]),
-  rest.post(apiEndPoint('/auth/signup'), signUp[200]),
+  rest.get(apiEndPoint('/auth/me'), meController[200]),
+  rest.post(apiEndPoint('/auth/signup'), signupController[200]),
 ];
 
 export default authHandlers;

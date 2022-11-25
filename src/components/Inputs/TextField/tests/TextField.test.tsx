@@ -4,7 +4,7 @@
 */
 
 import renderer from 'react-test-renderer';
-import TextField from '../../TextField';
+import TextField from '../TextField';
 
 describe('TextField.tsx', () => {
   it('Should match snapshot', () => {

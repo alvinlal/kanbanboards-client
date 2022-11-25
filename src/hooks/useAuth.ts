@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { SignupPayload } from '../api/auth/types/SignupPayload';
 import { signUp as signUpUser } from '../api/auth';
-import useUser from './useUser';
+import useUser from './useUser/useUser';
 
 interface UseAuth {
   signUp: (payload: SignupPayload) => Promise<void>;

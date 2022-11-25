@@ -1,22 +1,11 @@
 import { ReactComponent as SpinnerIcon } from '../../assets/icons/spinner.svg';
 import styles from './Spinner.module.scss';
 
-interface SpinnerProps {
-  width?: string;
-  height?: string;
-}
+type SpinnerProps = React.SVGAttributes<SVGElement>;
 
-const Spinner: React.FC<SpinnerProps> = ({
-  width = '24px',
-  height = '24px',
-}) => {
+const Spinner: React.FC<SpinnerProps> = (props) => {
   return (
-    <SpinnerIcon
-      className={styles.spinner}
-      width={width}
-      height={height}
-      data-testid="spinner"
-    />
+    <SpinnerIcon {...props} className={styles.spinner} data-testid="spinner" />
   );
 };
 

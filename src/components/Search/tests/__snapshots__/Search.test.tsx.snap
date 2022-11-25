@@ -252,8 +252,6 @@ exports[`Search.tsx Should match api request loading snapshot 1`] = `
       <div
         class="spinner"
         data-testid="spinner"
-        height="24px"
-        width="24px"
       />
     </div>
   </div>

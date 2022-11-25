@@ -12,7 +12,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import Header from '../../Header';
+import Header from '../Header';
 
 describe('Header.tsx', () => {
   const getHeaderLinks = () => {

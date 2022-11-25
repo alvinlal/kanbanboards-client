@@ -1,71 +1,33 @@
-import { useCallback, useState } from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigate } from 'react-router-dom';
-import { AxiosError } from 'axios';
+import { Controller } from 'react-hook-form';
+
 import Button from '../../Button/Button';
 import TextField from '../../Inputs/TextField/TextField';
 import styles from './SignupForm.module.scss';
 import { ReactComponent as GoogleLogo } from '../../../assets/icons/google.svg';
-import signupSchema from './validators/signupSchema';
-import useAuth from '../../../hooks/useAuth';
-import useErrorHandlers from '../../../hooks/useErrorHandlers';
+
 import Spinner from '../../Spinner/Spinner';
+import { useSignupForm } from './hooks/useSignupForm';
 
-type FormInputs = {
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+type SignupFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 
-const SignupForm: React.FC = () => {
+const SignupForm: React.FC<SignupFormProps> = (props) => {
   const {
+    errors,
+    isValid,
     control,
+    handleGoogleSignUp,
     handleSubmit,
+    onSubmit,
+    loading,
     trigger,
-    setError,
-    formState: { errors, isValid },
-  } = useForm<FormInputs>({
-    mode: 'onChange',
-    resolver: yupResolver(signupSchema),
-  });
-  const [loading, setLoading] = useState(false);
-  const { signUp } = useAuth();
-  const { handleRequestError } = useErrorHandlers();
-  const navigate = useNavigate();
-
-  const onSubmit: SubmitHandler<FormInputs> = useCallback(
-    async ({ email, password }) => {
-      try {
-        setLoading(true);
-        await signUp({ email, password });
-        navigate('/');
-      } catch (err) {
-        const requestErrors = handleRequestError(err as AxiosError);
-        if (requestErrors) {
-          setError(
-            'email',
-            {
-              message: requestErrors.message[0].constraints.IsEmailExists,
-            },
-            {
-              shouldFocus: true,
-            }
-          );
-        }
-      } finally {
-        setLoading(false);
-      }
-    },
-    [signUp, navigate, handleRequestError, setError]
-  );
-
-  const handleGoogleSignIn = useCallback(() => {
-    window.location.href = `${import.meta.env.VITE_API_ENDPOINT}/auth/google`;
-  }, []);
+  } = useSignupForm();
 
   return (
-    <form className={styles.signup__form} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={styles.signup__form}
+      onSubmit={handleSubmit(onSubmit)}
+      {...props}
+    >
       <h1>Signup</h1>
       <Controller
         control={control}
@@ -133,7 +95,8 @@ const SignupForm: React.FC = () => {
       </Button>
       <hr />
       <Button
-        onClick={handleGoogleSignIn}
+        type="button"
+        onClick={handleGoogleSignUp}
         width="100%"
         height="56px"
         variant="secondary"

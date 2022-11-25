@@ -1,14 +1,16 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { useCallback } from 'react';
-import { me } from '../api/auth';
-import storageKeys from '../local-storage/storageKeys';
-import queryKeys from '../react-query/queryKeys';
-import User from '../types/User';
+import { me } from '../../api/auth';
+import storageKeys from '../../local-storage/storageKeys';
+import queryKeys from '../../react-query/queryKeys';
+import User from '../../types/User';
 
 interface UseUser {
   user: User | null;
   isLoading: boolean;
+  isSuccess: boolean;
+  isError: boolean;
   updateUser: (user: User) => void;
   clearUser: () => void;
 }
@@ -27,8 +29,13 @@ const useUser = (): UseUser => {
     queryClient.setQueryData([queryKeys.user], null);
   }, [queryClient]);
 
-  const { data: user, isLoading } = useQuery([queryKeys.user], () => me(), {
-    retry: (_, error) => {
+  const {
+    data: user,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useQuery([queryKeys.user], me, {
+    retry: (_, error: AxiosError) => {
       if (error.response?.status === 401) {
         return false;
       }
@@ -52,8 +59,7 @@ const useUser = (): UseUser => {
       }
     },
   });
-
-  return { user, isLoading, updateUser, clearUser };
+  return { user, isLoading, isSuccess, isError, updateUser, clearUser };
 };
 
 export default useUser;

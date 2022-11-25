@@ -4,14 +4,18 @@ import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 import Search from '../Search/Search';
 
-interface HeaderProps {
+interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
   authenticated: boolean;
   boardPage: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ authenticated, boardPage }) => {
+const Header: React.FC<HeaderProps> = ({
+  authenticated,
+  boardPage,
+  ...restProps
+}) => {
   return (
-    <header className={styles.header}>
+    <header className={styles.header} {...restProps}>
       <div className={styles.logo__title}>
         <Logo height={48} width={48} className={boardPage ? styles.logo : ''} />
         {boardPage && (

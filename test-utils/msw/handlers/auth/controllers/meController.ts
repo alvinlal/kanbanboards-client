@@ -1,11 +1,11 @@
 import { RestRequest, ResponseComposition, RestContext } from 'msw';
 import defaultHandlers from '../../../defaultHandlers';
-import user from '../../../../mocks/user.json';
+import { userStub } from '../../../../stubs/user.stub';
 
-export default {
+export const meController = {
   ...defaultHandlers,
-  200: async (req: RestRequest, res: ResponseComposition, ctx: RestContext) =>
-    res(ctx.json({ _id: user._id })),
+  200: (req: RestRequest, res: ResponseComposition, ctx: RestContext) =>
+    res(ctx.json({ _id: userStub()._id })),
   401: (_: RestRequest, res: ResponseComposition, ctx: RestContext) =>
     res(
       ctx.status(401),

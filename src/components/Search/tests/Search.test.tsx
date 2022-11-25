@@ -16,23 +16,22 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter, Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { act } from 'react-dom/test-utils';
 import { faker } from '@faker-js/faker';
 import renderer from 'react-test-renderer';
-import Search from '../../Search';
-import { server, rest } from '../../../../../test-utils/msw/server';
-import { apiEndPoint } from '../../../../../test-utils/msw/baseUrls';
-import defaultHandlers from '../../../../../test-utils/msw/defaultHandlers';
+import Search from '../Search';
+import { server, rest } from '../../../../test-utils/msw/server';
+import { apiEndPoint } from '../../../../test-utils/msw/baseUrls';
+import defaultHandlers from '../../../../test-utils/msw/defaultHandlers';
 
 describe('Search.tsx', () => {
   // setup
   const loadingSpinnerTestId = 'spinner';
   const searchResultContainerTestId = `search-result-container`;
 
-  const typeIntoSearch = (query: string) => {
+  const typeIntoSearch = async (query: string) => {
     const queryInputElement = screen.getByRole('textbox') as HTMLInputElement;
 
-    userEvent.type(queryInputElement, query);
+    await userEvent.type(queryInputElement, query);
 
     return queryInputElement;
   };
@@ -46,20 +45,18 @@ describe('Search.tsx', () => {
 
     render(<Search />, { wrapper: BrowserRouter });
 
-    act(() => {
-      typeIntoSearch('my project');
-    });
+    await typeIntoSearch('my project');
 
-    loadingSpinner = await screen.findByTestId(loadingSpinnerTestId);
-    expect(loadingSpinner).toBeInTheDocument();
+    await waitFor(() => {
+      loadingSpinner = screen.getByTestId(loadingSpinnerTestId);
+      expect(loadingSpinner).toBeInTheDocument();
+    });
   });
 
   it('Should hide loading spinner after results have loaded', async () => {
     render(<Search />, { wrapper: BrowserRouter });
 
-    act(() => {
-      typeIntoSearch('my project');
-    });
+    await typeIntoSearch('my project');
 
     await waitFor(() => {
       expect(
@@ -83,13 +80,13 @@ describe('Search.tsx', () => {
 
     render(<Search />, { wrapper: BrowserRouter });
 
-    act(() => {
-      typeIntoSearch('my project');
+    await typeIntoSearch('my project');
+
+    await waitFor(() => {
+      const allSearchResults = screen.getAllByRole('link');
+
+      expect(allSearchResults).toHaveLength(results.length);
     });
-
-    const allSearchResults = await screen.findAllByRole('link');
-
-    expect(allSearchResults).toHaveLength(results.length);
   });
 
   it("Should display 'No Results!' when there is no results", async () => {
@@ -101,13 +98,12 @@ describe('Search.tsx', () => {
 
     render(<Search />, { wrapper: BrowserRouter });
 
-    act(() => {
-      typeIntoSearch('my project');
+    await typeIntoSearch('my project');
+    await waitFor(() => {
+      const noResultsFound = screen.getByText('No Results !');
+
+      expect(noResultsFound).toBeInTheDocument();
     });
-
-    const noResultsFound = await screen.findByText('No Results !');
-
-    expect(noResultsFound).toBeInTheDocument();
   });
 
   it('Should go to correct url while clicking a search result', async () => {
@@ -136,9 +132,7 @@ describe('Search.tsx', () => {
       </Router>
     );
 
-    act(() => {
-      typeIntoSearch('project 1');
-    });
+    await typeIntoSearch('project 1');
 
     await userEvent.click(await screen.findByRole('link'));
 
@@ -159,15 +153,15 @@ describe('Search.tsx', () => {
   it('Should hide search results on blur', async () => {
     render(<Search />, { wrapper: BrowserRouter });
 
-    act(() => {
-      typeIntoSearch('my project');
+    await typeIntoSearch('my project');
+
+    await waitFor(() => {
+      expect(
+        screen.getByTestId(searchResultContainerTestId)
+      ).toBeInTheDocument();
     });
 
-    expect(
-      await screen.findByTestId(searchResultContainerTestId)
-    ).toBeInTheDocument();
-
-    fireEvent.blur(screen.getByRole('textbox'));
+    await fireEvent.blur(screen.getByRole('textbox'));
 
     await waitFor(() => {
       expect(
@@ -179,20 +173,21 @@ describe('Search.tsx', () => {
   it('Should show search results on focus', async () => {
     render(<Search />, { wrapper: BrowserRouter });
 
-    act(() => {
-      typeIntoSearch('my project');
-    });
+    await typeIntoSearch('my project');
 
-    fireEvent.blur(screen.getByRole('textbox'));
+    await fireEvent.blur(screen.getByRole('textbox'));
+
     await waitFor(() => {
       expect(
         screen.queryByTestId(searchResultContainerTestId)
       ).not.toBeInTheDocument();
     });
-    fireEvent.focus(screen.getByRole('textbox'));
-    expect(
-      await screen.findByTestId(searchResultContainerTestId)
-    ).toBeInTheDocument();
+    await fireEvent.focus(screen.getByRole('textbox'));
+    await waitFor(() => {
+      expect(
+        screen.getByTestId(searchResultContainerTestId)
+      ).toBeInTheDocument();
+    });
   });
 
   it('Should match snapshot', () => {
@@ -207,11 +202,11 @@ describe('Search.tsx', () => {
       wrapper: BrowserRouter,
     });
 
-    act(() => {
-      typeIntoSearch('my project');
-    });
+    await typeIntoSearch('my project');
 
-    await screen.findByTestId(loadingSpinnerTestId);
+    await waitFor(() => {
+      screen.getByTestId(loadingSpinnerTestId);
+    });
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -221,11 +216,11 @@ describe('Search.tsx', () => {
       wrapper: BrowserRouter,
     });
 
-    act(() => {
-      typeIntoSearch('my project');
-    });
+    await typeIntoSearch('my project');
 
-    await screen.findAllByRole('link');
+    await waitFor(() => {
+      screen.getAllByRole('link');
+    });
 
     expect(asFragment()).toMatchSnapshot();
   });

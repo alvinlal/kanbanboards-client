@@ -8784,6 +8784,11 @@
     "jest-get-type" "^29.0.0"
     "pretty-format" "^29.0.3"
 
+"jest-localstorage-mock@^2.4.22":
+  "integrity" "sha512-60PWSDFQOS5v7JzSmYLM3dPLg0JLl+2Vc4lIEz/rj2yrXJzegsFLn7anwc5IL0WzJbBa/Las064CHbFg491/DQ=="
+  "resolved" "https://registry.npmjs.org/jest-localstorage-mock/-/jest-localstorage-mock-2.4.22.tgz"
+  "version" "2.4.22"
+
 "jest-matcher-utils@^29.0.3":
   "integrity" "sha512-RsR1+cZ6p1hDV4GSCQTg+9qjeotQCgkaleIKLK7dm+U4V/H2bWedU3RAtLm8+mANzZ7eDV33dMar4pejd7047w=="
   "resolved" "https://registry.npmjs.org/jest-matcher-utils/-/jest-matcher-utils-29.0.3.tgz"
