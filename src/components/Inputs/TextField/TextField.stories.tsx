@@ -13,9 +13,7 @@ export default {
   ],
 } as ComponentMeta<typeof TextField>;
 
-const Template: ComponentStory<typeof TextField> = (args) => (
-  <TextField {...args} />
-);
+const Template: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
 
 export const Default = Template.bind({});
 

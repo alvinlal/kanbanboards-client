@@ -29,7 +29,7 @@ exports[`Search.tsx Should match api request finished snapshot 1`] = `
         </svg>
         <input
           placeholder="Search"
-          type="text"
+          type="search"
         />
       </div>
     </div>
@@ -246,7 +246,7 @@ exports[`Search.tsx Should match api request loading snapshot 1`] = `
         </svg>
         <input
           placeholder="Search"
-          type="text"
+          type="search"
         />
       </div>
       <div
@@ -289,7 +289,7 @@ exports[`Search.tsx Should match snapshot 1`] = `
         onChange={[Function]}
         onFocus={[Function]}
         placeholder="Search"
-        type="text"
+        type="search"
       />
     </div>
   </div>

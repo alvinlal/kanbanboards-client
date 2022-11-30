@@ -20,9 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       style={{ width, height }}
-      className={`${styles.button} ${styles[variant]} ${
-        destructive ? styles.destructive : ''
-      } }`}
+      className={`${styles.button} ${styles[variant]} ${destructive ? styles.destructive : ''}`}
       {...restProps}
     >
       {children}

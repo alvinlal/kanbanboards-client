@@ -1,14 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AxiosError } from 'axios';
-import { useState, useCallback } from 'react';
-import {
-  useForm,
-  SubmitHandler,
-  FieldErrorsImpl,
-  Control,
-  UseFormHandleSubmit,
-  UseFormTrigger,
-} from 'react-hook-form';
+import React, { useState, useCallback } from 'react';
+import { useForm, SubmitHandler, FieldErrorsImpl, Control, UseFormTrigger } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
 import useErrorHandlers from '../../../../hooks/useErrorHandlers';
@@ -17,15 +10,14 @@ import signupSchema from '../validators/signupSchema';
 interface UseSignupForm {
   loading: boolean;
   isValid: boolean;
-  errors: Partial<FieldErrorsImpl<FormInputs>>;
-  control: Control<FormInputs, unknown>;
+  errors: Partial<FieldErrorsImpl<SignupFormInputs>>;
+  control: Control<SignupFormInputs, unknown>;
   handleGoogleSignUp: () => void;
-  handleSubmit: UseFormHandleSubmit<FormInputs>;
-  onSubmit: SubmitHandler<FormInputs>;
-  trigger: UseFormTrigger<FormInputs>;
+  submitForm: (e: React.FormEvent) => void;
+  trigger: UseFormTrigger<SignupFormInputs>;
 }
 
-type FormInputs = {
+export type SignupFormInputs = {
   email: string;
   password: string;
   confirmPassword: string;
@@ -38,7 +30,7 @@ export const useSignupForm = (): UseSignupForm => {
     trigger,
     setError,
     formState: { errors, isValid },
-  } = useForm<FormInputs>({
+  } = useForm<SignupFormInputs>({
     mode: 'onChange',
     resolver: yupResolver(signupSchema),
   });
@@ -47,7 +39,7 @@ export const useSignupForm = (): UseSignupForm => {
   const { handleRequestError } = useErrorHandlers();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FormInputs> = useCallback(
+  const onSubmit: SubmitHandler<SignupFormInputs> = useCallback(
     async ({ email, password }) => {
       try {
         setLoading(true);
@@ -77,14 +69,18 @@ export const useSignupForm = (): UseSignupForm => {
     window.location.href = `${import.meta.env.VITE_API_ENDPOINT}/auth/google`;
   }, []);
 
+  const submitForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSubmit(onSubmit)();
+  };
+
   return {
     control,
     errors,
-    handleSubmit,
     handleGoogleSignUp,
     isValid,
     loading,
-    onSubmit,
+    submitForm,
     trigger,
   };
 };

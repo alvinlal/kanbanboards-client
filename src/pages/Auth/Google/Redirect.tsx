@@ -33,9 +33,7 @@ const Redirect: React.FC = () => {
   }, []);
 
   return (
-    <div className={style.redirect}>
-      {loading && <Spinner width="100px" height="100px" />}
-    </div>
+    <div className={style.redirect}>{loading && <Spinner width="100px" height="100px" />}</div>
   );
 };
 

@@ -1,11 +1,5 @@
 import throttle from 'lodash.throttle';
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import search from '../../../api/search';
 import SearchResponse from '../../../api/search/types/SearchResponse';
 
@@ -46,13 +40,7 @@ export const useSearch = (): UseSearch => {
     [abortController.signal]
   );
 
-  const throttledHandleChange = useMemo(
-    () => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const throttledFn = throttle(handleChange, 300);
-      throttledFn(e);
-    },
-    [handleChange]
-  );
+  const throttledHandleChange = useMemo(() => throttle(handleChange, 300), [handleChange]);
 
   useEffect(() => {
     return () => {

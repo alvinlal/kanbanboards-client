@@ -1,7 +1,4 @@
-import {
-  ChevronRightIcon,
-  MagnifyingGlassIcon,
-} from '@heroicons/react/24/outline';
+import { ChevronRightIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 import { Link } from 'react-router-dom';
 
@@ -27,7 +24,7 @@ const Search: React.FC<SearchProps> = (props) => {
         <div className={styles.search__input}>
           <MagnifyingGlassIcon width={32} height={32} strokeWidth={3} />
           <input
-            type="text"
+            type="search"
             placeholder="Search"
             ref={searchInputRef}
             onChange={throttledHandleChange}
@@ -47,10 +44,7 @@ const Search: React.FC<SearchProps> = (props) => {
       {results
         ? results.length
           ? isResultsVisible && (
-              <div
-                className={styles.search__results}
-                data-testid="search-result-container"
-              >
+              <div className={styles.search__results} data-testid="search-result-container">
                 {results.map((result) => (
                   <Link
                     key={result._id}

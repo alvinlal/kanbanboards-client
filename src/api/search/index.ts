@@ -1,4 +1,4 @@
-import axiosClient from '../api';
+import axiosClient from '..';
 import SearchResponse from './types/SearchResponse';
 
 export default (query: string, signal: AbortSignal) =>

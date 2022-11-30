@@ -15,7 +15,7 @@ export const signupController = {
           {
             property: 'email',
             constraints: {
-              IsEmailExists: 'Account already exists, please login',
+              isEmailExists: 'Account already exists, please login',
             },
           },
         ],

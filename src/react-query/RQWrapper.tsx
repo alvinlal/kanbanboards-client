@@ -11,8 +11,6 @@ const queryClient = new QueryClient({
     error: () => {},
   },
 });
-export const RQWrapper: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
+export const RQWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );

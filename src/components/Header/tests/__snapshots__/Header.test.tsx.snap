@@ -103,7 +103,7 @@ exports[`Header.tsx Should match snapshot for board page 1`] = `
             onChange={[Function]}
             onFocus={[Function]}
             placeholder="Search"
-            type="text"
+            type="search"
           />
         </div>
       </div>

@@ -42,9 +42,8 @@ describe('Header.tsx', () => {
       wrapper: BrowserRouter,
     });
 
-    const { signUpLink, loginLink, logoutLink, yourBoardsLink } =
-      getHeaderLinks();
-    const searchBar = screen.queryByRole('textbox');
+    const { signUpLink, loginLink, logoutLink, yourBoardsLink } = getHeaderLinks();
+    const searchBar = screen.queryByRole('searchbox');
 
     expect(signUpLink).toBeInTheDocument();
     expect(loginLink).toBeInTheDocument();
@@ -58,9 +57,8 @@ describe('Header.tsx', () => {
       wrapper: BrowserRouter,
     });
 
-    const { signUpLink, loginLink, logoutLink, yourBoardsLink } =
-      getHeaderLinks();
-    const searchBar = screen.queryByRole('textbox');
+    const { signUpLink, loginLink, logoutLink, yourBoardsLink } = getHeaderLinks();
+    const searchBar = screen.queryByRole('searchbox');
     expect(logoutLink).toBeInTheDocument();
     expect(yourBoardsLink).toBeInTheDocument();
     expect(signUpLink).not.toBeInTheDocument();
@@ -73,9 +71,8 @@ describe('Header.tsx', () => {
       wrapper: BrowserRouter,
     });
 
-    const { signUpLink, loginLink, logoutLink, yourBoardsLink } =
-      getHeaderLinks();
-    const searchBar = screen.queryByRole('textbox');
+    const { signUpLink, loginLink, logoutLink, yourBoardsLink } = getHeaderLinks();
+    const searchBar = screen.queryByRole('searchbox');
 
     expect(logoutLink).toBeInTheDocument();
     expect(searchBar).toBeInTheDocument();

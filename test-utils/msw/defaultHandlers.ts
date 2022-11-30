@@ -11,6 +11,5 @@ export default {
         message: 'Internal server error',
       })
     ),
-  ERR_NETWORK: (_: RestRequest, res: ResponseComposition) =>
-    res.networkError('failed to connect'),
+  ERR_NETWORK: (_: RestRequest, res: ResponseComposition) => res.networkError('failed to connect'),
 };

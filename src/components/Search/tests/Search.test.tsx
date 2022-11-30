@@ -29,7 +29,7 @@ describe('Search.tsx', () => {
   const searchResultContainerTestId = `search-result-container`;
 
   const typeIntoSearch = async (query: string) => {
-    const queryInputElement = screen.getByRole('textbox') as HTMLInputElement;
+    const queryInputElement = screen.getByRole('searchbox') as HTMLInputElement;
 
     await userEvent.type(queryInputElement, query);
 
@@ -59,9 +59,7 @@ describe('Search.tsx', () => {
     await typeIntoSearch('my project');
 
     await waitFor(() => {
-      expect(
-        screen.queryByTestId(loadingSpinnerTestId)
-      ).not.toBeInTheDocument();
+      expect(screen.queryByTestId(loadingSpinnerTestId)).not.toBeInTheDocument();
     });
   });
 
@@ -156,17 +154,13 @@ describe('Search.tsx', () => {
     await typeIntoSearch('my project');
 
     await waitFor(() => {
-      expect(
-        screen.getByTestId(searchResultContainerTestId)
-      ).toBeInTheDocument();
+      expect(screen.getByTestId(searchResultContainerTestId)).toBeInTheDocument();
     });
 
-    await fireEvent.blur(screen.getByRole('textbox'));
+    await fireEvent.blur(screen.getByRole('searchbox'));
 
     await waitFor(() => {
-      expect(
-        screen.queryByTestId(searchResultContainerTestId)
-      ).not.toBeInTheDocument();
+      expect(screen.queryByTestId(searchResultContainerTestId)).not.toBeInTheDocument();
     });
   });
 
@@ -175,18 +169,14 @@ describe('Search.tsx', () => {
 
     await typeIntoSearch('my project');
 
-    await fireEvent.blur(screen.getByRole('textbox'));
+    await fireEvent.blur(screen.getByRole('searchbox'));
 
     await waitFor(() => {
-      expect(
-        screen.queryByTestId(searchResultContainerTestId)
-      ).not.toBeInTheDocument();
+      expect(screen.queryByTestId(searchResultContainerTestId)).not.toBeInTheDocument();
     });
-    await fireEvent.focus(screen.getByRole('textbox'));
+    await fireEvent.focus(screen.getByRole('searchbox'));
     await waitFor(() => {
-      expect(
-        screen.getByTestId(searchResultContainerTestId)
-      ).toBeInTheDocument();
+      expect(screen.getByTestId(searchResultContainerTestId)).toBeInTheDocument();
     });
   });
 

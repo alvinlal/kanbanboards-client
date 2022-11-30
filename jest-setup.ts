@@ -11,11 +11,9 @@ const localStorageMock = (function getStore() {
     getItem: jest.fn().mockImplementation((key: string) => {
       return store[key] || null;
     }),
-    setItem: jest
-      .fn()
-      .mockImplementation((key: string, value: string | number | boolean) => {
-        store[key] = value;
-      }),
+    setItem: jest.fn().mockImplementation((key: string, value: string | number | boolean) => {
+      store[key] = value;
+    }),
     removeItem: jest.fn().mockImplementation((key: string) => {
       delete store[key];
     }),

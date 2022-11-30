@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignupForm.tsx Should match snapshots match's default snapshot 1`] = `
+<form
+  className="signup__form"
+  onSubmit={[Function]}
+>
+  <h1>
+    Signup
+  </h1>
+  <input
+    aria-label="email"
+    autoFocus={true}
+    className="textfield null"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="email"
+    type="text"
+  />
+  <div
+    className="error"
+  />
+  <input
+    aria-label="password"
+    className="textfield null"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="password"
+    type="password"
+  />
+  <div
+    className="error"
+  />
+  <input
+    aria-label="confirm password"
+    className="textfield null"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="confirm password"
+    type="password"
+  />
+  <div
+    className="error"
+  />
+  <button
+    className="button primary "
+    disabled={true}
+    style={
+      {
+        "height": "56px",
+        "width": "100%",
+      }
+    }
+    type="submit"
+  >
+    <p>
+      SIGNUP
+    </p>
+  </button>
+  <hr />
+  <button
+    className="button secondary "
+    onClick={[Function]}
+    style={
+      {
+        "height": "56px",
+        "width": "100%",
+      }
+    }
+    type="button"
+  >
+    <p>
+      CONTINUE WITH GOOGLE
+    </p>
+    <div
+      height={28}
+      width={28}
+    />
+  </button>
+</form>
+`;
+
+exports[`SignupForm.tsx Should match snapshots match's field error state snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="signup__form"
+  >
+    <h1>
+      Signup
+    </h1>
+    <input
+      aria-label="email"
+      class="textfield error"
+      placeholder="email"
+      type="text"
+    />
+    <div
+      class="error"
+    >
+      <p>
+        email is not valid
+      </p>
+    </div>
+    <input
+      aria-label="password"
+      class="textfield error"
+      placeholder="password"
+      type="password"
+    />
+    <div
+      class="error"
+    >
+      <p>
+        password should contain atleast 6 characters
+      </p>
+    </div>
+    <input
+      aria-label="confirm password"
+      class="textfield error"
+      placeholder="confirm password"
+      type="password"
+    />
+    <div
+      class="error"
+    >
+      <p>
+        passwords must match
+      </p>
+    </div>
+    <button
+      class="button primary "
+      disabled=""
+      style="width: 100%; height: 56px;"
+      type="submit"
+    >
+      <p>
+        SIGNUP
+      </p>
+    </button>
+    <hr />
+    <button
+      class="button secondary "
+      style="width: 100%; height: 56px;"
+      type="button"
+    >
+      <p>
+        CONTINUE WITH GOOGLE
+      </p>
+      <div
+        height="28"
+        width="28"
+      />
+    </button>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`SignupForm.tsx Should match snapshots match's loading state snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="signup__form"
+  >
+    <h1>
+      Signup
+    </h1>
+    <input
+      aria-label="email"
+      class="textfield null"
+      placeholder="email"
+      type="text"
+    />
+    <div
+      class="error"
+    />
+    <input
+      aria-label="password"
+      class="textfield null"
+      placeholder="password"
+      type="password"
+    />
+    <div
+      class="error"
+    />
+    <input
+      aria-label="confirm password"
+      class="textfield null"
+      placeholder="confirm password"
+      type="password"
+    />
+    <div
+      class="error"
+    />
+    <button
+      class="button primary "
+      disabled=""
+      style="width: 100%; height: 56px;"
+      type="submit"
+    >
+      <p>
+        SIGNUP
+      </p>
+      <div
+        class="spinner"
+        data-testid="spinner"
+      />
+    </button>
+    <hr />
+    <button
+      class="button secondary "
+      style="width: 100%; height: 56px;"
+      type="button"
+    >
+      <p>
+        CONTINUE WITH GOOGLE
+      </p>
+      <div
+        height="28"
+        width="28"
+      />
+    </button>
+  </form>
+</DocumentFragment>
+`;
