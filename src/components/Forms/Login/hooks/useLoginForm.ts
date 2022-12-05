@@ -1,69 +1,62 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AxiosError } from 'axios';
-import React, { useState, useCallback } from 'react';
-import { useForm, SubmitHandler, FieldErrorsImpl, Control, UseFormTrigger } from 'react-hook-form';
+import { useState, useCallback } from 'react';
+import { useForm, SubmitHandler, Control, FieldErrorsImpl } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/useAuth';
 import { useErrorHandlers } from '../../../../hooks/useErrorHandlers';
-import { BadRequestException } from '../../../../types/BadRequestException';
-import { signupSchema } from '../validators/signupSchema';
+import { UnauthorizedException } from '../../../../types/UnauthorizedException';
 
-interface UseSignupForm {
+import { loginSchema } from '../validators/loginSchema';
+
+interface UseLoginForm {
   loading: boolean;
   isValid: boolean;
-  errors: Partial<FieldErrorsImpl<SignupFormInputs>>;
-  control: Control<SignupFormInputs, unknown>;
+  errors: Partial<FieldErrorsImpl<LoginFormInputs>>;
+  control: Control<LoginFormInputs, unknown>;
   handleContinueWithGoogle: () => void;
   submitForm: (e: React.FormEvent) => void;
-  trigger: UseFormTrigger<SignupFormInputs>;
 }
 
-export type SignupFormInputs = {
+export type LoginFormInputs = {
   email: string;
   password: string;
-  confirmPassword: string;
 };
 
-export const useSignupForm = (): UseSignupForm => {
+export const useLoginForm = (): UseLoginForm => {
   const {
     control,
     handleSubmit,
-    trigger,
     setError,
     formState: { errors, isValid },
-  } = useForm<SignupFormInputs>({
+  } = useForm<LoginFormInputs>({
     mode: 'onChange',
-    resolver: yupResolver(signupSchema),
+    resolver: yupResolver(loginSchema),
   });
   const [loading, setLoading] = useState(false);
-  const { signUp } = useAuth();
+  const { logIn } = useAuth();
   const { handleRequestError } = useErrorHandlers();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<SignupFormInputs> = useCallback(
+  const onSubmit: SubmitHandler<LoginFormInputs> = useCallback(
     async ({ email, password }) => {
       try {
         setLoading(true);
-        await signUp({ email, password });
+        await logIn({ email, password });
         navigate('/');
       } catch (err) {
-        const requestErrors = handleRequestError(err as AxiosError) as BadRequestException;
+        const requestErrors = handleRequestError(err as AxiosError) as UnauthorizedException;
+
         if (requestErrors) {
-          setError(
-            'email',
-            {
-              message: requestErrors.message[0].constraints.isEmailExists,
-            },
-            {
-              shouldFocus: true,
-            }
-          );
+          setError('password', {
+            message: requestErrors.message,
+          });
         }
       } finally {
         setLoading(false);
       }
     },
-    [signUp, navigate, handleRequestError, setError]
+    [logIn, navigate, handleRequestError, setError]
   );
 
   const handleContinueWithGoogle = useCallback(() => {
@@ -78,10 +71,9 @@ export const useSignupForm = (): UseSignupForm => {
   return {
     control,
     errors,
-    handleContinueWithGoogle,
     isValid,
     loading,
     submitForm,
-    trigger,
+    handleContinueWithGoogle,
   };
 };

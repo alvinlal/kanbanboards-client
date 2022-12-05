@@ -15,7 +15,7 @@ interface UseUser {
   clearUser: () => void;
 }
 
-const useUser = (): UseUser => {
+export const useUser = (): UseUser => {
   const queryClient = useQueryClient();
 
   const updateUser = useCallback(
@@ -61,5 +61,3 @@ const useUser = (): UseUser => {
   });
   return { user, isLoading, isSuccess, isError, updateUser, clearUser };
 };
-
-export default useUser;

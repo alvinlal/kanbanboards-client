@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const signupSchema = Yup.object({
+export const signupSchema = Yup.object({
   email: Yup.string().required('email is required').email('email is not valid'),
   password: Yup.string()
     .required('password is required')
@@ -13,5 +13,3 @@ const signupSchema = Yup.object({
     .required('please confirm password')
     .oneOf([Yup.ref('password'), null], 'passwords must match'),
 });
-
-export default signupSchema;

@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserDetailsFromOauth } from '../../../api/auth';
 import Spinner from '../../../components/Spinner/Spinner';
-import useErrorHandlers from '../../../hooks/useErrorHandlers';
-import useUser from '../../../hooks/useUser/useUser';
+import { useErrorHandlers } from '../../../hooks/useErrorHandlers';
+import { useUser } from '../../../hooks/useUser/useUser';
 import style from './Redirect.module.scss';
 
 const Redirect: React.FC = () => {

@@ -382,7 +382,7 @@ describe('SignupForm.tsx', () => {
         password,
         confirmPassword: `${password}123`,
       });
-      await clickOnSignupButton();
+
       expect(asFragment()).toMatchSnapshot();
     });
   });

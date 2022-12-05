@@ -1,11 +1,11 @@
-import SignupForm from '../../components/Forms/Signup/SignupForm';
+import LoginForm from '../../components/Forms/Login/LoginForm';
 import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
   return (
     <div className={styles.container}>
       home page
-      <SignupForm />
+      <LoginForm />
     </div>
   );
 };

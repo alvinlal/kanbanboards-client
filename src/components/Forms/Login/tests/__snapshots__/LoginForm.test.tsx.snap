@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignupForm.tsx Should match snapshots match's default snapshot 1`] = `
+exports[`LoginForm.tsx Should match snapshots match's default snapshot 1`] = `
 <form
-  className="signup__form"
+  className="login__form"
   onSubmit={[Function]}
 >
   <h1>
-    Signup
+    Login
   </h1>
   <input
     aria-label="email"
@@ -31,17 +31,6 @@ exports[`SignupForm.tsx Should match snapshots match's default snapshot 1`] = `
   <div
     className="error"
   />
-  <input
-    aria-label="confirm password"
-    className="textfield null"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="confirm password"
-    type="password"
-  />
-  <div
-    className="error"
-  />
   <button
     className="button primary "
     disabled={true}
@@ -54,7 +43,7 @@ exports[`SignupForm.tsx Should match snapshots match's default snapshot 1`] = `
     type="submit"
   >
     <p>
-      SIGNUP
+      LOGIN
     </p>
   </button>
   <hr />
@@ -80,13 +69,13 @@ exports[`SignupForm.tsx Should match snapshots match's default snapshot 1`] = `
 </form>
 `;
 
-exports[`SignupForm.tsx Should match snapshots match's field error state snapshot 1`] = `
+exports[`LoginForm.tsx Should match snapshots match's field error state snapshot 1`] = `
 <DocumentFragment>
   <form
-    class="signup__form"
+    class="login__form"
   >
     <h1>
-      Signup
+      Login
     </h1>
     <input
       aria-label="email"
@@ -98,7 +87,7 @@ exports[`SignupForm.tsx Should match snapshots match's field error state snapsho
       class="error"
     >
       <p>
-        email is not valid
+        please enter your email
       </p>
     </div>
     <input
@@ -111,20 +100,7 @@ exports[`SignupForm.tsx Should match snapshots match's field error state snapsho
       class="error"
     >
       <p>
-        password should contain atleast 6 characters
-      </p>
-    </div>
-    <input
-      aria-label="confirm password"
-      class="textfield error"
-      placeholder="confirm password"
-      type="password"
-    />
-    <div
-      class="error"
-    >
-      <p>
-        passwords must match
+        please enter your password
       </p>
     </div>
     <button
@@ -134,7 +110,7 @@ exports[`SignupForm.tsx Should match snapshots match's field error state snapsho
       type="submit"
     >
       <p>
-        SIGNUP
+        LOGIN
       </p>
     </button>
     <hr />
@@ -155,13 +131,13 @@ exports[`SignupForm.tsx Should match snapshots match's field error state snapsho
 </DocumentFragment>
 `;
 
-exports[`SignupForm.tsx Should match snapshots match's loading state snapshot 1`] = `
+exports[`LoginForm.tsx Should match snapshots match's loading state snapshot 1`] = `
 <DocumentFragment>
   <form
-    class="signup__form"
+    class="login__form"
   >
     <h1>
-      Signup
+      Login
     </h1>
     <input
       aria-label="email"
@@ -181,15 +157,6 @@ exports[`SignupForm.tsx Should match snapshots match's loading state snapshot 1`
     <div
       class="error"
     />
-    <input
-      aria-label="confirm password"
-      class="textfield null"
-      placeholder="confirm password"
-      type="password"
-    />
-    <div
-      class="error"
-    />
     <button
       class="button primary "
       disabled=""
@@ -197,7 +164,7 @@ exports[`SignupForm.tsx Should match snapshots match's loading state snapshot 1`
       type="submit"
     >
       <p>
-        SIGNUP
+        LOGIN
       </p>
       <div
         class="spinner"

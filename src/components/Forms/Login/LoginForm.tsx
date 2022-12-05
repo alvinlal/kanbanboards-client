@@ -1,20 +1,19 @@
 import { Controller } from 'react-hook-form';
 import Button from '../../Button/Button';
 import TextField from '../../Inputs/TextField/TextField';
-import styles from './SignupForm.module.scss';
-import { ReactComponent as GoogleLogo } from '../../../assets/icons/google.svg';
 import Spinner from '../../Spinner/Spinner';
-import { useSignupForm } from './hooks/useSignupForm';
+import { useLoginForm } from './hooks/useLoginForm';
+import styles from './LoginForm.module.scss';
+import { ReactComponent as GoogleLogo } from '../../../assets/icons/google.svg';
 
-type SignupFormProps = React.FormHTMLAttributes<HTMLFormElement>;
+type LoginFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 
-const SignupForm: React.FC<SignupFormProps> = (props) => {
-  const { errors, isValid, control, handleContinueWithGoogle, loading, trigger, submitForm } =
-    useSignupForm();
-
+const LoginForm: React.FC<LoginFormProps> = (props) => {
+  const { errors, isValid, handleContinueWithGoogle, control, loading, submitForm } =
+    useLoginForm();
   return (
-    <form className={styles.signup__form} onSubmit={submitForm} {...props}>
-      <h1>Signup</h1>
+    <form className={styles.login__form} onSubmit={submitForm} {...props}>
+      <h1>Login</h1>
       <Controller
         control={control}
         name="email"
@@ -41,34 +40,13 @@ const SignupForm: React.FC<SignupFormProps> = (props) => {
             aria-label="password"
             placeholder="password"
             error={!!errors.password}
-            onChange={async (e) => {
-              onChange(e);
-              await trigger('confirmPassword');
-            }}
-            onBlur={onBlur}
-            ref={ref}
-          />
-        )}
-      />
-      <div className={styles.error}>{errors.password && <p>{errors.password.message}</p>}</div>
-      <Controller
-        control={control}
-        name="confirmPassword"
-        render={({ field: { ref, onChange, onBlur } }) => (
-          <TextField
-            type="password"
-            placeholder="confirm password"
-            aria-label="confirm password"
-            error={!!errors.confirmPassword}
             onChange={onChange}
             onBlur={onBlur}
             ref={ref}
           />
         )}
       />
-      <div className={styles.error}>
-        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-      </div>
+      <div className={styles.error}>{errors.password && <p>{errors.password.message}</p>}</div>
       <Button
         type="submit"
         width="100%"
@@ -76,7 +54,7 @@ const SignupForm: React.FC<SignupFormProps> = (props) => {
         variant="primary"
         disabled={!isValid || loading}
       >
-        <p>SIGNUP</p>
+        <p>LOGIN</p>
         {loading && <Spinner />}
       </Button>
       <hr />
@@ -94,4 +72,4 @@ const SignupForm: React.FC<SignupFormProps> = (props) => {
   );
 };
 
-export default SignupForm;
+export default LoginForm;
