@@ -1,5 +1,5 @@
 .login__form {
-  width: auto;
+  width: 100%;
   height: auto;
   background-color: white;
   h1 {
@@ -17,7 +17,7 @@
   }
 
   .error {
-    height: 54px;
+    height: 74px;
     width: 100%;
     display: flex;
     justify-content: flex-start;
