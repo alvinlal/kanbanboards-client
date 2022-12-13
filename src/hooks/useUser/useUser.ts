@@ -7,7 +7,7 @@ import queryKeys from '../../react-query/queryKeys';
 import User from '../../types/User';
 
 interface UseUser {
-  user: User | null;
+  user: User | null | undefined;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
@@ -21,12 +21,14 @@ export const useUser = (): UseUser => {
   const updateUser = useCallback(
     (newUser: User) => {
       queryClient.setQueryData([queryKeys.user], newUser);
+      localStorage.setItem(storageKeys.user, JSON.stringify(newUser));
     },
     [queryClient]
   );
 
   const clearUser = useCallback(() => {
     queryClient.setQueryData([queryKeys.user], null);
+    localStorage.removeItem(storageKeys.user);
   }, [queryClient]);
 
   const {
@@ -35,22 +37,17 @@ export const useUser = (): UseUser => {
     isSuccess,
     isError,
   } = useQuery([queryKeys.user], me, {
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
     retry: (_, error: AxiosError) => {
       if (error.response?.status === 401) {
         return false;
       }
       return true;
     },
-    initialData: () => {
-      const storedUser = localStorage.getItem(storageKeys.user);
-      return storedUser ? JSON.parse(storedUser) : null;
-    },
     onSuccess: (received: User | null) => {
-      if (!received) {
-        localStorage.removeItem(storageKeys.user);
-      } else {
-        localStorage.setItem(storageKeys.user, JSON.stringify(received));
-      }
+      localStorage.setItem(storageKeys.user, JSON.stringify(received));
     },
     onError: (err: AxiosError) => {
       if (err.response?.status === 401) {

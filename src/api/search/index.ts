@@ -1,7 +1,7 @@
 import axiosClient from '..';
-import SearchResponse from './types/SearchResponse';
+import { SearchResponseDto } from './dto/SearchResponse.dto';
 
 export default (query: string, signal: AbortSignal) =>
-  axiosClient.get<SearchResponse>(`/search?q=${encodeURIComponent(query)}`, {
+  axiosClient.get<SearchResponseDto>(`/search?q=${encodeURIComponent(query)}`, {
     signal,
   });

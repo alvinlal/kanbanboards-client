@@ -1,19 +1,20 @@
 import { useCallback } from 'react';
-import { SignupPayload } from '../api/auth/types/SignupPayload';
-import { signUp as signUpUser, logIn as logInUser } from '../api/auth';
+import { SignupRequestDto } from '../api/auth/dto/Request/SignupRequest.dto';
+import { signUp as signUpUser, logIn as logInUser, logOut as logOutUser } from '../api/auth';
 import { useUser } from './useUser/useUser';
-import { LoginPayload } from '../api/auth/types/LoginPayload';
+import { LoginRequestDto } from '../api/auth/dto/Request/LoginRequest.dto';
 
 interface UseAuth {
-  signUp: (payload: SignupPayload) => Promise<void>;
-  logIn: (payload: LoginPayload) => Promise<void>;
+  signUp: (payload: SignupRequestDto) => Promise<void>;
+  logIn: (payload: LoginRequestDto) => Promise<void>;
+  logOut: () => Promise<void>;
 }
 
 export const useAuth = (): UseAuth => {
-  const { updateUser } = useUser();
+  const { updateUser, clearUser } = useUser();
 
   const signUp = useCallback(
-    async (payload: SignupPayload) => {
+    async (payload: SignupRequestDto) => {
       const { data } = await signUpUser(payload);
       updateUser(data);
     },
@@ -21,12 +22,17 @@ export const useAuth = (): UseAuth => {
   );
 
   const logIn = useCallback(
-    async (payload: LoginPayload) => {
+    async (payload: LoginRequestDto) => {
       const { data } = await logInUser(payload);
       updateUser(data);
     },
     [updateUser]
   );
 
-  return { signUp, logIn };
+  const logOut = useCallback(async () => {
+    await logOutUser();
+    clearUser();
+  }, [clearUser]);
+
+  return { signUp, logIn, logOut };
 };

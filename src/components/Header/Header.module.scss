@@ -2,7 +2,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 88px;
+  height: 70px;
   width: 100%;
   background-color: $primary-300;
   padding: 0px 24px;
@@ -13,7 +13,7 @@ header {
     display: flex;
     align-items: center;
     color: white;
-    h3 {
+    h4 {
       font-weight: $bold;
       margin-left: 16px;
     }
@@ -75,6 +75,9 @@ header {
       .hamburger__bars {
         display: block;
         transform: scaley(1.7);
+      }
+      h4 {
+        display: none;
       }
     }
 

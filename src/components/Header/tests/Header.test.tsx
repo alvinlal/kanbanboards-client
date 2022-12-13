@@ -10,8 +10,9 @@
  */
 
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
+import { RQWrapper } from '../../../react-query/RQWrapper';
 import Header from '../Header';
 
 describe('Header.tsx', () => {
@@ -38,9 +39,14 @@ describe('Header.tsx', () => {
   };
 
   it('Should show only signup and login links while unauthenticated', () => {
-    render(<Header authenticated={false} boardPage={false} />, {
-      wrapper: BrowserRouter,
-    });
+    render(
+      <MemoryRouter>
+        <Header authenticated={false} boardPage={false} />
+      </MemoryRouter>,
+      {
+        wrapper: RQWrapper,
+      }
+    );
 
     const { signUpLink, loginLink, logoutLink, yourBoardsLink } = getHeaderLinks();
     const searchBar = screen.queryByRole('searchbox');
@@ -53,9 +59,14 @@ describe('Header.tsx', () => {
   });
 
   it('Should show only your boards and logout links while authenticated', () => {
-    render(<Header authenticated boardPage={false} />, {
-      wrapper: BrowserRouter,
-    });
+    render(
+      <MemoryRouter>
+        <Header authenticated boardPage={false} />
+      </MemoryRouter>,
+      {
+        wrapper: RQWrapper,
+      }
+    );
 
     const { signUpLink, loginLink, logoutLink, yourBoardsLink } = getHeaderLinks();
     const searchBar = screen.queryByRole('searchbox');
@@ -67,9 +78,14 @@ describe('Header.tsx', () => {
   });
 
   it('Should show only logout link and search bar while on board page', () => {
-    render(<Header authenticated boardPage />, {
-      wrapper: BrowserRouter,
-    });
+    render(
+      <MemoryRouter>
+        <Header authenticated boardPage />
+      </MemoryRouter>,
+      {
+        wrapper: RQWrapper,
+      }
+    );
 
     const { signUpLink, loginLink, logoutLink, yourBoardsLink } = getHeaderLinks();
     const searchBar = screen.queryByRole('searchbox');
@@ -86,27 +102,33 @@ describe('Header.tsx', () => {
 
   it('Should match snapshot for authenticated user', () => {
     const tree = renderer.create(
-      <MemoryRouter>
-        <Header authenticated boardPage={false} />
-      </MemoryRouter>
+      <RQWrapper>
+        <MemoryRouter>
+          <Header authenticated boardPage={false} />
+        </MemoryRouter>
+      </RQWrapper>
     );
     expect(tree).toMatchSnapshot();
   });
 
   it('Should match snapshot for unauthenticated user', () => {
     const tree = renderer.create(
-      <MemoryRouter>
-        <Header authenticated={false} boardPage={false} />
-      </MemoryRouter>
+      <RQWrapper>
+        <MemoryRouter>
+          <Header authenticated={false} boardPage={false} />
+        </MemoryRouter>
+      </RQWrapper>
     );
     expect(tree).toMatchSnapshot();
   });
 
   it('Should match snapshot for board page', () => {
     const tree = renderer.create(
-      <MemoryRouter>
-        <Header authenticated boardPage />
-      </MemoryRouter>
+      <RQWrapper>
+        <MemoryRouter>
+          <Header authenticated boardPage />
+        </MemoryRouter>
+      </RQWrapper>
     );
     expect(tree).toMatchSnapshot();
   });

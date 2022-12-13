@@ -1,10 +1,10 @@
 import throttle from 'lodash.throttle';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import search from '../../../api/search';
-import SearchResponse from '../../../api/search/types/SearchResponse';
+import { SearchResponseDto } from '../../../api/search/dto/SearchResponse.dto';
 
 interface UseSearch {
-  results: SearchResponse | null;
+  results: SearchResponseDto | null;
   isResultsVisible: boolean;
   setIsResultsVisible: React.Dispatch<React.SetStateAction<boolean>>;
   loading: boolean;
@@ -13,7 +13,7 @@ interface UseSearch {
 }
 
 export const useSearch = (): UseSearch => {
-  const [results, setResults] = useState<SearchResponse | null>(null);
+  const [results, setResults] = useState<SearchResponseDto | null>(null);
   const [isResultsVisible, setIsResultsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);

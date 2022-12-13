@@ -9,12 +9,14 @@ exports[`Header.tsx Should match snapshot for authenticated user 1`] = `
   >
     <div
       className=""
-      height={48}
-      width={48}
+      cursor="pointer"
+      height={42}
+      onClick={[Function]}
+      width={42}
     />
-    <h3>
+    <h4>
       KanbanBoards
-    </h3>
+    </h4>
   </div>
   <div
     className="header__search"
@@ -46,8 +48,10 @@ exports[`Header.tsx Should match snapshot for board page 1`] = `
   >
     <div
       className="logo"
-      height={48}
-      width={48}
+      cursor="pointer"
+      height={42}
+      onClick={[Function]}
+      width={42}
     />
     <svg
       aria-hidden="true"
@@ -66,9 +70,9 @@ exports[`Header.tsx Should match snapshot for board page 1`] = `
         strokeLinejoin="round"
       />
     </svg>
-    <h3>
+    <h4>
       KanbanBoards
-    </h3>
+    </h4>
   </div>
   <div
     className="header__search"
@@ -130,25 +134,28 @@ exports[`Header.tsx Should match snapshot for unauthenticated user 1`] = `
   >
     <div
       className=""
-      height={48}
-      width={48}
+      cursor="pointer"
+      height={42}
+      onClick={[Function]}
+      width={42}
     />
-    <h3>
+    <h4>
       KanbanBoards
-    </h3>
+    </h4>
   </div>
   <div
     className="header__search"
   />
   <nav>
     <a
-      href="/auth/signup"
+      href="/signup"
       onClick={[Function]}
+      tabIndex={0}
     >
       Signup
     </a>
     <a
-      href="/auth/login"
+      href="/login"
       onClick={[Function]}
     >
       Login

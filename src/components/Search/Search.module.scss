@@ -28,6 +28,10 @@
         color: $text-300;
         border: none;
         @include text-base;
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }
