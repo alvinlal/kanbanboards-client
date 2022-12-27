@@ -3,8 +3,8 @@ import { AxiosError } from 'axios';
 import React, { useState, useCallback } from 'react';
 import { useForm, SubmitHandler, FieldErrorsImpl, Control, UseFormTrigger } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../../hooks/useAuth';
-import { useErrorHandlers } from '../../../../hooks/useErrorHandlers';
+import { useAuth } from '../../../../hooks/useAuth/useAuth';
+import { useErrorHandlers } from '../../../../hooks/useErrorHandlers/useErrorHandlers';
 import { BadRequestException } from '../../../../types/BadRequestException';
 import { signupSchema } from '../validators/signupSchema';
 

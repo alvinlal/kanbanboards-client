@@ -1,5 +1,3 @@
-interface User {
+export type User = {
   _id: string;
-}
-
-export default User;
+};

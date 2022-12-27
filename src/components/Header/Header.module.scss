@@ -8,6 +8,7 @@ header {
   padding: 0px 24px;
   font-size: 19px;
   position: relative;
+  z-index: 30;
 
   .logo__title {
     display: flex;
@@ -20,6 +21,7 @@ header {
 
     .hamburger__bars {
       display: none;
+      cursor: pointer;
     }
   }
 

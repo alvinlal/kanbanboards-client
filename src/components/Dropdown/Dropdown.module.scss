@@ -1,0 +1,24 @@
+.dropdown {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: $sh-allsides-medium;
+
+  .dropdown__option {
+    height: 56px;
+    color: $text-400;
+    font-weight: $bold;
+    @include text-base;
+    padding: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    background-color: white;
+
+    &:hover {
+      background-color: $grey-300;
+    }
+  }
+}

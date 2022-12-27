@@ -68,7 +68,7 @@ exports[`Search.tsx Should match api request finished snapshot 1`] = `
         id="search-result"
       >
         <h6>
-          my project 2
+          my project 2 asdfasd fasdfas dfasdfasd asdsad asd
         </h6>
         <svg
           aria-hidden="true"

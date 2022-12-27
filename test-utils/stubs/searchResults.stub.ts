@@ -4,7 +4,7 @@ const searchResults = [
     _id: 'ad223casdfdedas392af32223',
   },
   {
-    title: 'my project 2',
+    title: 'my project 2 asdfasd fasdfas dfasdfasd asdsad asd',
     _id: 'ad223cdasdged3f392af32223',
   },
   {

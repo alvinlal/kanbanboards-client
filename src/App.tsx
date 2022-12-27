@@ -49,7 +49,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       <ToastContainer />
     </QueryClientProvider>
   );

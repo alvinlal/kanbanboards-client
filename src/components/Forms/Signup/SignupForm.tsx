@@ -71,8 +71,7 @@ const SignupForm: React.FC<SignupFormProps> = (props) => {
       </div>
       <Button
         type="submit"
-        width="100%"
-        height="56px"
+        style={{ width: '100%', height: '56px', borderRadius: 5 }}
         variant="primary"
         disabled={!isValid || loading}
       >
@@ -83,8 +82,7 @@ const SignupForm: React.FC<SignupFormProps> = (props) => {
       <Button
         type="button"
         onClick={handleContinueWithGoogle}
-        width="100%"
-        height="56px"
+        style={{ width: '100%', height: '56px', borderRadius: 5 }}
         variant="secondary"
       >
         <p>CONTINUE WITH GOOGLE</p>

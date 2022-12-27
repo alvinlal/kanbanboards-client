@@ -2,16 +2,14 @@
 import styles from './Button.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  height?: string;
-  width?: string;
+  style: React.CSSProperties;
   variant?: 'primary' | 'secondary';
   destructive?: boolean;
   children: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  height = 'auto',
-  width = 'auto',
+  style,
   variant = 'primary',
   destructive = false,
   children,
@@ -19,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      style={{ width, height }}
+      style={style}
       className={`${styles.button} ${styles[variant]} ${destructive ? styles.destructive : ''}`}
       {...restProps}
     >

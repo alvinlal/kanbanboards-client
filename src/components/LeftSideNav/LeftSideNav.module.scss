@@ -1,0 +1,68 @@
+.left__side__nav {
+  width: 240px;
+  height: calc(100vh - 70px);
+  padding-top: 40px;
+  background-color: $grey-50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .heading {
+    margin-bottom: 16px;
+
+    h6 {
+      color: $text-300;
+      font-weight: $bold;
+    }
+
+    svg {
+      color: $text-300;
+      transform: rotate(45deg);
+      display: none;
+      cursor: pointer;
+    }
+    padding: 0px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $error-300;
+    width: 100%;
+
+    p {
+      margin-left: 5px;
+    }
+  }
+
+  .logout__btn {
+    display: none;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: $sm) {
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    left: -100%;
+    transition: left 0.2s linear;
+
+    .heading {
+      margin-top: 40px;
+      svg {
+        display: block;
+      }
+    }
+
+    .logout__btn {
+      display: flex;
+    }
+  }
+}

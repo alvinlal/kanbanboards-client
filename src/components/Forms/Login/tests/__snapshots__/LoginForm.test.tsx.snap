@@ -36,6 +36,7 @@ exports[`LoginForm.tsx Should match snapshots match's default snapshot 1`] = `
     disabled={true}
     style={
       {
+        "borderRadius": 5,
         "height": "56px",
         "width": "100%",
       }
@@ -52,6 +53,7 @@ exports[`LoginForm.tsx Should match snapshots match's default snapshot 1`] = `
     onClick={[Function]}
     style={
       {
+        "borderRadius": 5,
         "height": "56px",
         "width": "100%",
       }
@@ -106,7 +108,7 @@ exports[`LoginForm.tsx Should match snapshots match's field error state snapshot
     <button
       class="button primary "
       disabled=""
-      style="width: 100%; height: 56px;"
+      style="width: 100%; height: 56px; border-radius: 5px;"
       type="submit"
     >
       <p>
@@ -116,7 +118,7 @@ exports[`LoginForm.tsx Should match snapshots match's field error state snapshot
     <hr />
     <button
       class="button secondary "
-      style="width: 100%; height: 56px;"
+      style="width: 100%; height: 56px; border-radius: 5px;"
       type="button"
     >
       <p>
@@ -160,7 +162,7 @@ exports[`LoginForm.tsx Should match snapshots match's loading state snapshot 1`]
     <button
       class="button primary "
       disabled=""
-      style="width: 100%; height: 56px;"
+      style="width: 100%; height: 56px; border-radius: 5px;"
       type="submit"
     >
       <p>
@@ -174,7 +176,7 @@ exports[`LoginForm.tsx Should match snapshots match's loading state snapshot 1`]
     <hr />
     <button
       class="button secondary "
-      style="width: 100%; height: 56px;"
+      style="width: 100%; height: 56px; border-radius: 5px;"
       type="button"
     >
       <p>

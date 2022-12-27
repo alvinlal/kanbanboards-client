@@ -1,4 +1,4 @@
-import User from '../../types/User';
+import { User } from '../../types/User';
 import axiosClient from '..';
 import { SignupRequestDto } from './dto/Request/SignupRequest.dto';
 import { SignupResponseDto } from './dto/Response/SignupResponse.dto';

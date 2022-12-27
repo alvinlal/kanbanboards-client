@@ -3,8 +3,8 @@ import { AxiosError } from 'axios';
 import { useState, useCallback } from 'react';
 import { useForm, SubmitHandler, Control, FieldErrorsImpl } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../../hooks/useAuth';
-import { useErrorHandlers } from '../../../../hooks/useErrorHandlers';
+import { useAuth } from '../../../../hooks/useAuth/useAuth';
+import { useErrorHandlers } from '../../../../hooks/useErrorHandlers/useErrorHandlers';
 import { UnauthorizedException } from '../../../../types/UnauthorizedException';
 
 import { loginSchema } from '../validators/loginSchema';

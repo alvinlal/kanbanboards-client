@@ -58,6 +58,7 @@ exports[`Header.tsx Should match snapshot for board page 1`] = `
       className="hamburger__bars"
       fill="none"
       height={48}
+      onClick={[Function]}
       stroke="currentColor"
       strokeWidth={1.5}
       viewBox="0 0 24 24"

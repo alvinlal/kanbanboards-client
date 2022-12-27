@@ -1,0 +1,15 @@
+.board__list__wrapper {
+  position: relative;
+}
+
+.board__list__container {
+  width: 240px;
+  max-height: 65vh;
+  margin-bottom: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  @media screen and (max-width: $sm) {
+    width: 100%;
+  }
+}

@@ -27,8 +27,7 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   variant: 'primary',
-  width: '130px',
-  height: '50px',
+  style: { height: '50px', width: '150px' },
   destructive: false,
   children: (
     <>
@@ -42,8 +41,7 @@ export const Secondary = Template.bind({});
 
 Secondary.args = {
   variant: 'secondary',
-  width: '200px',
-  height: '50px',
+  style: { height: '50px', width: '150px' },
   destructive: false,
   children: (
     <>
@@ -57,8 +55,7 @@ export const Destructive = Template.bind({});
 
 Destructive.args = {
   variant: 'primary',
-  width: '150px',
-  height: '50px',
+  style: { height: '50px', width: '150px' },
   destructive: true,
   children: (
     <>

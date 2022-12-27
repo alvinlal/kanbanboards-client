@@ -1,8 +1,8 @@
 import axios, { AxiosError } from 'axios';
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
-import { BadRequestException } from '../types/BadRequestException';
-import { UnauthorizedException } from '../types/UnauthorizedException';
+import { BadRequestException } from '../../types/BadRequestException';
+import { UnauthorizedException } from '../../types/UnauthorizedException';
 
 interface UseErrorHandler {
   handleRequestError: (err: AxiosError) => null | BadRequestException | UnauthorizedException;

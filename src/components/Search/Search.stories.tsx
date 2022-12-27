@@ -47,7 +47,7 @@ Loading.parameters = {
 Loading.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
-  await userEvent.type(canvas.getByRole('textbox'), 'my project');
+  await userEvent.type(canvas.getByRole('searchbox'), 'my project');
 };
 
 export const WithResults: ComponentStory<typeof Search> = () => (
@@ -59,7 +59,7 @@ export const WithResults: ComponentStory<typeof Search> = () => (
 WithResults.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
-  await userEvent.type(canvas.getByRole('textbox'), 'my project');
+  await userEvent.type(canvas.getByRole('searchbox'), 'my project');
 };
 
 export const NoResults: ComponentStory<typeof Search> = () => (
@@ -81,5 +81,5 @@ NoResults.parameters = {
 NoResults.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
-  await userEvent.type(canvas.getByRole('textbox'), 'my project');
+  await userEvent.type(canvas.getByRole('searchbox'), 'my project');
 };

@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { me } from '../../api/auth';
 import storageKeys from '../../local-storage/storageKeys';
 import queryKeys from '../../react-query/queryKeys';
-import User from '../../types/User';
+import { User } from '../../types/User';
 
 interface UseUser {
   user: User | null | undefined;

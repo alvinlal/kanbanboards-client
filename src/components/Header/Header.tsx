@@ -1,6 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Bars3Icon } from '@heroicons/react/24/outline';
-
 import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 import Search from '../Search/Search';
@@ -12,8 +11,9 @@ interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Header: React.FC<HeaderProps> = ({ authenticated, boardPage, ...restProps }) => {
-  const { handleLogout } = useHeader();
+  const { logOut, toggleLeftSideNav } = useHeader();
   const navigate = useNavigate();
+
   return (
     <header className={styles.header} {...restProps}>
       <div className={styles.logo__title}>
@@ -24,7 +24,14 @@ const Header: React.FC<HeaderProps> = ({ authenticated, boardPage, ...restProps 
           onClick={() => navigate('/')}
           cursor="pointer"
         />
-        {boardPage && <Bars3Icon height={48} width={38} className={styles.hamburger__bars} />}
+        {boardPage && (
+          <Bars3Icon
+            height={48}
+            width={38}
+            className={styles.hamburger__bars}
+            onClick={toggleLeftSideNav}
+          />
+        )}
         <h4>KanbanBoards</h4>
       </div>
       <div className={styles.header__search}>{boardPage && <Search />}</div>
@@ -32,11 +39,7 @@ const Header: React.FC<HeaderProps> = ({ authenticated, boardPage, ...restProps 
         {authenticated ? (
           <>
             {!boardPage && <Link to="/allboards">Your Boards</Link>}
-            <button
-              className={boardPage ? styles.logout__btn : ''}
-              onClick={handleLogout}
-              type="button"
-            >
+            <button className={boardPage ? styles.logout__btn : ''} onClick={logOut} type="button">
               Logout
             </button>
           </>
