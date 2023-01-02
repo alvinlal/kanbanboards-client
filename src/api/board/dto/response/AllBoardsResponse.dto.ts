@@ -1,4 +1,4 @@
-export type AllBoardsResponse = {
+export type AllBoardsResponseDto = {
   _id: string;
   title: string;
 }[];

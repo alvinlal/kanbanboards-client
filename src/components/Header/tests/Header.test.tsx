@@ -98,8 +98,6 @@ describe('Header.tsx', () => {
     expect(yourBoardsLink).not.toBeInTheDocument();
   });
 
-  it.todo('Should open nav while clicking on hamburger menu on mobile');
-
   it('Should match snapshot for authenticated user', () => {
     const tree = renderer.create(
       <RQWrapper>

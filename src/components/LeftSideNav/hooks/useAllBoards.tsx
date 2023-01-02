@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { getAllBoards } from '../../api/board';
-import { AllBoardsResponse } from '../../api/board/dto/response/AllBoardsResponse.dto';
-
-import queryKeys from '../../react-query/queryKeys';
+import { getAllBoards } from '../../../api/board';
+import { AllBoardsResponseDto } from '../../../api/board/dto/response/AllBoardsResponse.dto';
+import queryKeys from '../../../react-query/queryKeys';
 
 interface UseAllBoards {
-  allBoards: AllBoardsResponse | undefined;
+  allBoards: AllBoardsResponseDto | undefined;
   isLoading: boolean;
   isError: boolean;
 }

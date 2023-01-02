@@ -11,6 +11,7 @@ type LoginFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 const LoginForm: React.FC<LoginFormProps> = (props) => {
   const { errors, isValid, handleContinueWithGoogle, control, loading, submitForm } =
     useLoginForm();
+
   return (
     <form className={styles.login__form} onSubmit={submitForm} {...props}>
       <h1>Login</h1>

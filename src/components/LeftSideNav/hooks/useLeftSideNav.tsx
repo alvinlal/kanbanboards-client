@@ -1,42 +1,33 @@
-import { useMemo } from 'react';
-import { AllBoardsResponse } from '../../../api/board/dto/response/AllBoardsResponse.dto';
-import { useAllBoards } from '../../../hooks/useAllBoards/useAllBoards';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { useAuth } from '../../../hooks/useAuth/useAuth';
+import { useBoards } from '../../../hooks/useBoards/useBoards';
 import { useToggleLeftSideNav } from '../../../hooks/useToggleLeftSideNav/useToggleLeftSideNav';
-import SkeletonBlock from '../../SkeletonBlock/SkeletonBlock';
 
 interface UseLeftSideNav {
-  LoadingBlocks: React.ReactNode[];
-  allBoards: AllBoardsResponse | undefined;
-  isLoading: boolean;
-  isError: boolean;
   isLeftSideNavOpen: boolean;
   toggleLeftSideNav: () => void;
   logOut: () => Promise<void>;
+  newBoard: () => void;
 }
 
 export const useLeftSideNav = (): UseLeftSideNav => {
-  const { allBoards, isLoading, isError } = useAllBoards();
+  const { addBoard } = useBoards();
   const { isLeftSideNavOpen, toggleLeftSideNav } = useToggleLeftSideNav();
   const { logOut } = useAuth();
+  const navigate = useNavigate();
 
-  const LoadingBlocks = useMemo(() => {
-    const blocks = [];
-
-    for (let i = 0; i < 6; i += 1) {
-      blocks.push(<SkeletonBlock width="200px" height="30px" key={i} />);
-    }
-
-    return blocks;
-  }, []);
+  const newBoard = useCallback(() => {
+    const newBoardId = crypto.randomUUID();
+    addBoard.mutate({ _id: newBoardId, title: 'Untitled' });
+    navigate(`/boards/${newBoardId}`, { state: { new: true } });
+  }, [navigate, addBoard]);
 
   return {
-    LoadingBlocks,
-    allBoards,
-    isLoading,
-    isError,
     isLeftSideNavOpen,
     toggleLeftSideNav,
     logOut,
+    newBoard,
   };
 };

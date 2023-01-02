@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import { apiEndPoint } from '../../baseUrls';
-import { boardController } from './controllers/boardController';
+import { AllboardsController } from './controllers/AllboardsController';
 
-const boardHandlers = [rest.get(apiEndPoint('/boards/all'), boardController[200])];
+const boardHandlers = [rest.get(apiEndPoint('/boards/all'), AllboardsController[200])];
 
 export default boardHandlers;

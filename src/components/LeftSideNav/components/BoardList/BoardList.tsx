@@ -1,25 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import { AllBoardsResponse } from '../../../../api/board/dto/response/AllBoardsResponse.dto';
+import { AllBoardsResponseDto } from '../../../../api/board/dto/response/AllBoardsResponse.dto';
 import BoardLink from '../BoardLink/BoardLink';
 import styles from './BoardList.module.scss';
 
 interface BoardListProps {
-  allBoards: AllBoardsResponse;
+  allBoards: AllBoardsResponseDto;
 }
 
 const BoardList: React.FC<BoardListProps> = ({ allBoards }) => {
-  const navigate = useNavigate();
-
   return (
-    <div className={styles.board__list__wrapper}>
+    <div className={styles.board__list__wrapper} data-testid="board-list-wrapper">
       <div className={styles.board__list__container} id="#board__list__container">
         {allBoards.map((board) => (
-          <BoardLink
-            key={board._id}
-            title={board.title}
-            _id={board._id}
-            onClick={() => navigate(`/board/${board._id}`)}
-          />
+          <BoardLink key={board._id} title={board.title} _id={board._id} />
         ))}
       </div>
     </div>

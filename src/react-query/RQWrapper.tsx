@@ -10,6 +10,11 @@ const queryClient = new QueryClient({
     warn: console.warn,
     error: () => {},
   },
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
 });
 export const RQWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

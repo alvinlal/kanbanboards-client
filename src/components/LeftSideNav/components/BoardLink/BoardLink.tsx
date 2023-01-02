@@ -1,19 +1,19 @@
 import { ChevronRightIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Dropdown from '../../../Dropdown/Dropdown';
-
 import styles from './BoardLink.module.scss';
 
 interface BoardLinkProps {
-  onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.KeyboardEvent) => void;
   title: string;
   _id: string;
 }
 
-const BoardLink: React.FC<BoardLinkProps> = ({ title, onClick, _id }) => {
+const BoardLink: React.FC<BoardLinkProps> = ({ title, _id }) => {
   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
   const linkRef = useRef<HTMLDivElement>(null);
   const dropDownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleDropDownToggle = useCallback(
     (e: React.MouseEvent<SVGSVGElement>) => {
@@ -46,16 +46,17 @@ const BoardLink: React.FC<BoardLinkProps> = ({ title, onClick, _id }) => {
     <div
       className={styles.board__list__link}
       onKeyDown={(e) => {
-        if (e.code === 'Enter') onClick(e);
+        if (e.code === 'Enter') navigate(`/board/${_id}`);
       }}
       role="link"
       tabIndex={0}
-      onClick={onClick}
+      onClick={() => navigate(`/board/${_id}`)}
       ref={linkRef}
     >
       <ChevronRightIcon className={styles.arrow__right__icon} strokeWidth={3} />
       <p> {title}</p>
       <EllipsisHorizontalIcon
+        data-testid="toggle-dropdown"
         className={styles.board__options__ellipses}
         tabIndex={0}
         onClick={handleDropDownToggle}
@@ -64,6 +65,7 @@ const BoardLink: React.FC<BoardLinkProps> = ({ title, onClick, _id }) => {
       <div
         className={styles.board__list__wrapper}
         id="board__list__wrapper"
+        data-testid="board-dropdown-wrapper"
         style={{ display: isDropDownVisible ? 'block' : 'none' }}
         ref={dropDownRef}
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
