@@ -5,7 +5,7 @@ import { userStub } from '../../../../stubs/user.stub';
 export const signupController = {
   ...defaultHandlers,
   200: async (_: RestRequest, res: ResponseComposition, ctx: RestContext) =>
-    res(ctx.json({ _id: userStub()._id })),
+    res(ctx.json({ _id: userStub().user_id })),
   400: (_: RestRequest, res: ResponseComposition, ctx: RestContext) =>
     res(
       ctx.status(400),

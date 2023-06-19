@@ -5,7 +5,7 @@ import { userStub } from '../../../../stubs/user.stub';
 export const loginController = {
   ...defaultHandlers,
   200: async (_: RestRequest, res: ResponseComposition, ctx: RestContext) =>
-    res(ctx.json({ _id: userStub()._id })),
+    res(ctx.json({ user_id: userStub().user_id })),
   401: (_: RestRequest, res: ResponseComposition, ctx: RestContext) =>
     res(
       ctx.status(400),

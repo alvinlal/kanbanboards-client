@@ -20,7 +20,7 @@ export const useLeftSideNav = (): UseLeftSideNav => {
 
   const newBoard = useCallback(() => {
     const newBoardId = crypto.randomUUID();
-    addBoard.mutate({ _id: newBoardId, title: 'Untitled' });
+    addBoard.mutate({ board_id: newBoardId, title: 'Untitled' });
     navigate(`/boards/${newBoardId}`, { state: { new: true } });
   }, [navigate, addBoard]);
 

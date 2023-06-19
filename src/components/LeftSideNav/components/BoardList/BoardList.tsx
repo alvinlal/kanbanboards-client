@@ -11,7 +11,7 @@ const BoardList: React.FC<BoardListProps> = ({ allBoards }) => {
     <div className={styles.board__list__wrapper} data-testid="board-list-wrapper">
       <div className={styles.board__list__container} id="#board__list__container">
         {allBoards.map((board) => (
-          <BoardLink key={board._id} title={board.title} _id={board._id} />
+          <BoardLink key={board.board_id} title={board.title} board_id={board.board_id} />
         ))}
       </div>
     </div>

@@ -47,9 +47,9 @@ const Search: React.FC<SearchProps> = (props) => {
               <div className={styles.search__results} data-testid="search-result-container">
                 {results.map((result) => (
                   <Link
-                    key={result._id}
+                    key={result.board_id}
                     className={styles.search__result}
-                    to={`/board/${result._id}`}
+                    to={`/board/${result.board_id}`}
                     id="search-result"
                   >
                     <h6>{result.title}</h6>

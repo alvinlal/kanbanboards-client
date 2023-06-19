@@ -25,7 +25,13 @@ export const parameters = {
 
 export const decorators = [
   (Story) => {
-    const queryClient = new QueryClient();
+    const queryClient = new QueryClient({
+      defaultOptions: {
+        queries: {
+          retry: false,
+        },
+      },
+    });
 
     return (
       <QueryClientProvider client={queryClient}>

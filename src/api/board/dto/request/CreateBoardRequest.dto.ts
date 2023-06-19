@@ -1,4 +1,4 @@
 export type CreateBoardRequestDto = {
-  _id: string;
+  board_id: string;
   title: string;
 };

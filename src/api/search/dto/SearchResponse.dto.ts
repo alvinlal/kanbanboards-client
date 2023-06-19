@@ -1,4 +1,4 @@
 export type SearchResponseDto = {
   title: string;
-  _id: string;
+  board_id: string;
 }[];

@@ -9,7 +9,7 @@ describe('BoardLink.tsx', () => {
   it('should display board title', () => {
     render(
       <MemoryRouter>
-        <BoardLink title="my board" _id="123" />
+        <BoardLink title="my board" board_id="123" />
       </MemoryRouter>
     );
     expect(screen.getByText('my board')).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe('BoardLink.tsx', () => {
   it('should open dropdown menu on clicking ellipse icon', async () => {
     render(
       <MemoryRouter>
-        <BoardLink title="my board" _id="123" />
+        <BoardLink title="my board" board_id="123" />
       </MemoryRouter>
     );
     expect(await screen.findByTestId('board-dropdown-wrapper')).not.toBeVisible();
@@ -29,7 +29,7 @@ describe('BoardLink.tsx', () => {
   it('should close dropdown on clicking on the elipse while the dropdown is visible', async () => {
     render(
       <MemoryRouter>
-        <BoardLink title="my board" _id={faker.datatype.uuid()} />
+        <BoardLink title="my board" board_id={faker.datatype.uuid()} />
       </MemoryRouter>
     );
     expect(await screen.findByTestId('board-dropdown-wrapper')).not.toBeVisible();
@@ -42,7 +42,7 @@ describe('BoardLink.tsx', () => {
   it('should close dropdown on blur', async () => {
     render(
       <MemoryRouter>
-        <BoardLink title="my board" _id={faker.datatype.uuid()} />
+        <BoardLink title="my board" board_id={faker.datatype.uuid()} />
       </MemoryRouter>
     );
     await fireEvent.click(screen.getByTestId('toggle-dropdown'));
@@ -52,15 +52,15 @@ describe('BoardLink.tsx', () => {
   });
 
   it('should navigate to correct board on click', async () => {
-    const _id = faker.datatype.uuid();
-    const pathname = `/board/${_id}`;
+    const board_id = faker.datatype.uuid();
+    const pathname = `/board/${board_id}`;
 
     const history = createMemoryHistory();
     history.push = jest.fn();
 
     render(
       <Router location={history.location} navigator={history}>
-        <BoardLink title="my board" _id={_id} />
+        <BoardLink title="my board" board_id={board_id} />
       </Router>
     );
 

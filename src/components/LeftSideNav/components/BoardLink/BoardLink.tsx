@@ -6,10 +6,10 @@ import styles from './BoardLink.module.scss';
 
 interface BoardLinkProps {
   title: string;
-  _id: string;
+  board_id: string;
 }
 
-const BoardLink: React.FC<BoardLinkProps> = ({ title, _id }) => {
+const BoardLink: React.FC<BoardLinkProps> = ({ title, board_id }) => {
   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
   const linkRef = useRef<HTMLDivElement>(null);
   const dropDownRef = useRef<HTMLDivElement>(null);
@@ -46,11 +46,11 @@ const BoardLink: React.FC<BoardLinkProps> = ({ title, _id }) => {
     <div
       className={styles.board__list__link}
       onKeyDown={(e) => {
-        if (e.code === 'Enter') navigate(`/board/${_id}`);
+        if (e.code === 'Enter') navigate(`/board/${board_id}`);
       }}
       role="link"
       tabIndex={0}
-      onClick={() => navigate(`/board/${_id}`)}
+      onClick={() => navigate(`/board/${board_id}`)}
       ref={linkRef}
     >
       <ChevronRightIcon className={styles.arrow__right__icon} strokeWidth={3} />
@@ -60,7 +60,7 @@ const BoardLink: React.FC<BoardLinkProps> = ({ title, _id }) => {
         className={styles.board__options__ellipses}
         tabIndex={0}
         onClick={handleDropDownToggle}
-        id={`toggle__dropdown__${_id}`}
+        id={`toggle__dropdown__${board_id}`}
       />
       <div
         className={styles.board__list__wrapper}
@@ -71,7 +71,7 @@ const BoardLink: React.FC<BoardLinkProps> = ({ title, _id }) => {
         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
         onBlur={(e) => {
-          if (e.relatedTarget?.id !== `toggle__dropdown__${_id}`) {
+          if (e.relatedTarget?.id !== `toggle__dropdown__${board_id}`) {
             setIsDropDownVisible(false);
           }
         }}

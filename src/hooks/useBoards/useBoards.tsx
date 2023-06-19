@@ -14,8 +14,8 @@ interface UseBoards {
       previousBoards: unknown;
     }
   >;
-  removeBoard: (_id: string) => void;
-  duplicateBoard: (_id: string) => void;
+  removeBoard: (board_id: string) => void;
+  duplicateBoard: (board_id: string) => void;
 }
 
 export const useBoards = (): UseBoards => {
@@ -42,9 +42,9 @@ export const useBoards = (): UseBoards => {
     },
   });
 
-  const removeBoard = useCallback((_id: string) => {}, []);
+  const removeBoard = useCallback((board_id: string) => {}, []);
 
-  const duplicateBoard = useCallback((_id: string) => {}, []);
+  const duplicateBoard = useCallback((board_id: string) => {}, []);
 
   return {
     duplicateBoard,

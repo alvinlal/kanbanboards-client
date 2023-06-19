@@ -65,9 +65,9 @@ describe('Search.tsx', () => {
 
   it('Should display search results correctly', async () => {
     const results = [
-      { title: 'my project 1', _id: faker.datatype.uuid() },
-      { title: 'my project 2', _id: faker.datatype.uuid() },
-      { title: 'my project 3', _id: faker.datatype.uuid() },
+      { title: 'my project 1', board_id: faker.datatype.uuid() },
+      { title: 'my project 2', board_id: faker.datatype.uuid() },
+      { title: 'my project 3', board_id: faker.datatype.uuid() },
     ];
 
     server.use(
@@ -106,15 +106,15 @@ describe('Search.tsx', () => {
 
   it('Should go to correct url while clicking a search result', async () => {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    const _id = faker.datatype.uuid();
-    const pathname = `/board/${_id}`;
+    const board_id = faker.datatype.uuid();
+    const pathname = `/board/${board_id}`;
     server.use(
       rest.get(apiEndPoint('/search'), async (_, res, ctx) => {
         return res(
           ctx.json([
             {
               title: 'my project',
-              _id,
+              board_id,
             },
           ])
         );
